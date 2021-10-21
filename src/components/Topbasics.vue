@@ -1,0 +1,271 @@
+<template>
+    <div class="basics">
+        <div class="container">
+            <div class="topbar">
+                <div class="logo">
+                    <img src="@/assets/logo.svg" alt="">
+                </div>
+                <div class="text">
+                    <div class="first">Бесплатный онлайн вебинар</div>
+                    <div class="second"><span class="special">20 октября в 20:00 (НУР)</span></div>
+                </div>
+            </div>
+            <section class="main">
+                <div class="block-text">
+                    <h1><span class="white-h1">Основы</span><br>
+                        финансовой <br>
+                        грамотности
+                    </h1>
+                    <p>
+                        Научу привлекать больше лидов при том же <br> рекламном бюджете и не тратить своё время на <br> скучные рабочие задачи
+                    </p>
+                    <popup class="popup" @click="flying"/>
+                </div>
+                <div class="block-video">
+                    <div class="wrapper">
+                        <iframe class="frame" border-radius="10px" src="https://www.youtube.com/embed/qtRIPb0ufgU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="text-video">
+                            <span class="block">Запишись на вебинар и получи мини курс в подарок</span>
+                            <a href="#" class="block">Смотреть больше &#8594;</a>
+                        </div>
+                    </div>
+                    <img class="activate'" src="@/assets/rocket1.png" alt="">
+                </div>
+            </section>
+            <popup class="mobile"/>
+        </div>
+    </div>
+</template>
+
+<script>
+import Popup from './Popup.vue'
+    export default {
+        data() {
+            return {
+                fly: null
+            }
+        },
+        components: {
+            Popup
+        },
+        methods: {
+            flying() {
+                console.log('fly');
+                this.fly = true
+                let rocket = document.querySelector('.fly')
+                setTimeout(() => {
+                    rocket.style['display'] = "none"
+                },2000)
+            }
+        }
+    }
+</script>
+
+<style lang="scss" scoped>
+.basics {
+    background-color: #201A3D;
+    .container {
+        max-width: 1440px;
+        width: 100%;
+        margin: 0 auto;
+        padding-bottom: 130px;
+        @media(max-width: 545px) {
+            width: 100%;
+            padding-bottom: 10px;
+        }
+        .topbar {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            height: 114px;
+            padding: 41px;
+            @media(max-width: 545px) {
+                flex-direction: column;
+                padding: 20px;
+            }
+            .logo {
+                @media(max-width: 545px) {
+                    width: 100px;
+                    height: 25px;
+                }
+                img {
+                    width: 70%;
+                }
+
+            }
+            .text {
+                color: #58BE00;
+                font-family: Exo 2;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 18px;
+                line-height: 24px;
+                @media(max-width: 545px) {
+                    width: 100%;
+                    margin-top: 39px;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 14px;
+                    line-height: 17px;
+                }
+                .first {
+                        @media(max-width: 545px) {
+                        font-style: normal;
+                        font-weight: bold;
+                        font-size: 14px;
+                        line-height: 17px;
+                    }
+                }
+                .second {
+                    margin-top: 7px;
+                    padding-top: 3px;
+                    background: #5CB803;
+                    border-radius: 20px;
+                    text-align: center;
+                    height: 28px;
+                    @media(max-width: 545px) {
+                        margin-top: 8px;
+                        font-style: normal;
+                        font-weight: bold;
+                        font-size: 14px;
+                        line-height: 17px;
+                        width: 195px;
+                        height: 20px;
+                        text-align: center;
+                    }
+                    .special {      
+                        color: #000000;
+                        padding-bottom: 2px;
+
+                    }
+                }
+            }
+        }
+        .main {
+            display: flex;
+            flex-direction: row;
+            margin-top: 44px;
+            padding: 41px;
+            justify-content: space-between;
+            @media(max-width: 545px) {
+                width: 100%;
+                flex-direction: column;
+                padding: 20px;
+            }
+            .block-text {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                h1 {
+                    color: #58BE00;
+                    font-family: Exo 2;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 50px;
+                    line-height: 60px;
+                    text-transform: uppercase;
+                    @media(max-width: 545px) {
+                        width: 100%;
+                        font-size: 30px;
+                        line-height: 36px;
+                    }
+                    .white-h1 {
+                        color: #ffffff;
+                    }
+                }
+                p {
+                    margin-top: 47px;
+                    color: #ffffff;
+                    margin-bottom: 57px;
+                    @media(max-width: 545px) {
+                        margin: 20px 0;
+                        font-style: normal;
+                        font-weight: bold;
+                        font-size: 14px;
+                        line-height: 17px;
+                        color: #FFFFFF;
+                    }
+                }
+                .popup {
+                    position: absolute;
+                    bottom: -30px;
+                    @media(max-width: 545px) {
+                        display: none;
+                    }
+                }
+            }
+            .block-video {
+                position: relative;
+                .wrapper {
+                    margin-top: 20px;
+                    width: 680px;
+                    height: 385px;
+                    @media(max-width: 545px) {
+                        width: 100%;
+                        height: 100%;
+                    }
+                    .frame {
+                        border: 2px solid #58BE00;
+                        box-sizing: border-box;
+                        border-radius: 10px;
+                        width: 100%;
+                        height: 100%;
+                        @media(max-width: 545px) {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .text-video {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        font-family: Exo 2;
+                        font-style: normal;
+                        font-weight: bold;
+                        font-size: 18px;
+                        line-height: 22px;
+                        .block {
+                            padding-top: 8px;
+                            color: #58BE00; 
+                        }
+                        a {
+                            @media(max-width: 545px) {
+                                display: none;
+                            }
+                        }
+                    }
+                    img {
+                        width: 10%;
+                    }
+                }
+                img {
+                    position: absolute;
+                    width: 30%;
+                    top: -80px;
+                    right: 10px;
+                    animation: fadeOutTopRight;
+                    animation-duration: 2s;
+                    @media(max-width: 545px) {
+                        width: 40%;
+                        top: -25px;
+                        right: 0;
+                    }
+                }
+                .activate {
+                    animation: fadeOutTopRight;
+                    animation-duration: 2s;
+                }
+            }
+        }
+        .mobile {
+            padding: 20px;
+            @media(min-width: 545px) {
+                display: none;
+            }
+        }
+    }
+}
+
+</style>
