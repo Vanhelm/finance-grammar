@@ -3,7 +3,9 @@
 <div id="app" class="modal-vue">
   
   <!-- button show -->
-  <button class="btn" @click="showModal = true">Зарегистрироваться</button>
+  <div class="btn__wrapper">
+    <button class="btn" @click="showModal = true">Зарегистрироваться</button>
+  </div>
   
   <!-- overlay -->
   <div class="overlay" v-if="showModal" @click="showModal = false"></div>
@@ -36,20 +38,30 @@ export default {
 
 <style lang="scss" scoped>
 .modal-vue {
+  .btn__wrapper {
+    @media(max-width: 545px) {
+        position: fixed;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+      }
     .btn {
-            width: 240px;
-            height: 50px;
-            padding: 5px 55px;
-            background: #58BE00;
-            border-radius: 40px;
-            border: 1px solid;
-            border-color: #58BE00;
-            cursor: pointer;
-            color: #201A3D;
-            @media(max-width: 545px) {
-                width: 100%;
-            }
-    }
+      width: 240px;
+      height: 50px;
+      padding: 5px 55px;
+      background: #58BE00;
+      border-radius: 40px;
+      border: 1px solid;
+      border-color: #58BE00;
+      cursor: pointer;
+      color: #201A3D;
+      @media(max-width: 545px) {
+        // position: fixed;
+        width: 100%;
+        // left: 0px;
+      }
+    }  
+  }
     .overlay {
         position: fixed;
         z-index: 9998;

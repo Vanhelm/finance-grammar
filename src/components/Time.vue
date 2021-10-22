@@ -2,7 +2,9 @@
     <div class="wrapper__time">
         <div class="time">
             <div class="img__block">
-                <img src="@/assets/time.png" alt="">
+                <video class="gif" autoplay loop muted inline>
+                    <source src="@/assets/gtime.webm" type="video/webm">
+                </video>
             </div>
             <div class="form__block">
                 <div class="container">  
@@ -58,13 +60,14 @@ export default {
             width: 100%;
         }
         .img__block {
-            width: 40%;
+            width: 30%;
             @media(max-width: 545px) {
                 display: flex;
                 justify-content: center;
                 z-index: 90;
             }
-            img {
+            .gif {
+                border-radius: 20px;
                 width: 80%;
             }
         }
@@ -79,7 +82,7 @@ export default {
                     background: #EEEEEE;
                     border-radius: 20px;
                     padding: 25px;
-                    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+                    // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
                     @media(max-width: 545px) {
                         position: relative;
                         top: -50px;
