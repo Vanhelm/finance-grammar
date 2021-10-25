@@ -43,9 +43,12 @@ export default {
     max-width: 1440px;
     width: 100%;
     margin: 59px auto;
+    background-color: #fff;
     @media(max-width: 545px) {
         margin: 0;
         width: 100%;
+        position: relative;
+        z-index: 9991;
     }
     .time {
         display: flex;

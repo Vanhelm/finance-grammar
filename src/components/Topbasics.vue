@@ -23,7 +23,7 @@
                 </div>
                 <div class="block-video">
                     <div class="wrapper">
-                        <iframe class="frame" border-radius="10px" src="https://www.youtube.com/embed/qtRIPb0ufgU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="frame" src="https://www.youtube.com/embed/qtRIPb0ufgU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <div class="text-video">
                             <span class="block">Запишись на вебинар и получи мини курс в подарок</span>
                             <a href="#" class="block">Смотреть больше &#8594;</a>
@@ -42,7 +42,8 @@ import Popup from './Popup.vue'
     export default {
         data() {
             return {
-                fly: null
+                fly: null,
+                videoId: 'qtRIPb0ufgU'
             }
         },
         components: {
@@ -56,6 +57,19 @@ import Popup from './Popup.vue'
                 setTimeout(() => {
                     rocket.style['display'] = "none"
                 },2000)
+            },
+            playVideo() {
+                this.player.playVideo()
+                console.log("play");
+                // Do something after the playVideo command
+            },
+            playing() {
+                console.log("we are watching!!!")
+            }
+        },
+        computed: {
+            player() {
+                return this.$refs.youtube.player
             }
         }
     }
@@ -259,9 +273,10 @@ import Popup from './Popup.vue'
                 }
             }
         }
-        .mobile {
+        .mobile::before {
             padding: 20px;
-            @media(min-width: 545px) {
+            position: sticky;
+            @media(min-width: 900px) {
                 display: none;
             }
         }

@@ -1,21 +1,23 @@
 <template>
-    <div class="person">
-        <div class="person__container">
-            <div class="img__block">
-                <img src="@/assets/person.png" alt="">
-            </div>
-            <div class="text__block">
-                <div class="header__block">
-                    <h2>Чингис курмангалиев</h2>
-                    <div class="green">Спикер и автор курса </div>
+    <div class="person__wrapper">
+        <div class="person">
+            <div class="person__container">
+                <div class="img__block">
+                    <img src="@/assets/person.png" alt="">
                 </div>
-                <div class="body__block">
-                    <ul>
-                        <li><img src="@/assets/mark.svg" alt=""> 37 лет</li>
-                        <li><img src="@/assets/mark.svg" alt="">Эксперт №1 в тендерном бизнесе Казахстана</li>
-                        <li><img src="@/assets/mark.svg" alt="">Основатель компании “Тендерная Биржа”</li>
-                        <li><img src="@/assets/mark.svg" alt="">В тендерном бизнесе с 2004 года</li>
-                    </ul>
+                <div class="text__block">
+                    <div class="header__block">
+                        <h2>Чингис курмангалиев</h2>
+                        <div class="green">Спикер и автор курса </div>
+                    </div>
+                    <div class="body__block">
+                        <ul>
+                            <li><img src="@/assets/mark.svg" alt=""> 37 лет</li>
+                            <li><img src="@/assets/mark.svg" alt="">Эксперт №1 в тендерном бизнесе Казахстана</li>
+                            <li><img src="@/assets/mark.svg" alt="">Основатель компании “Тендерная Биржа”</li>
+                            <li><img src="@/assets/mark.svg" alt="">В тендерном бизнесе с 2004 года</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -29,16 +31,25 @@
 </script>
 
 <style lang="scss" scoped>
-.person {
+.person__wrapper {
+    height: 485px;
+    background-color: #FFFFFF;
+    position: relative;
+    @media(max-width: 545px) {
+            height: 600px;
+            padding-top: 80px;
+            z-index: 9991;
+    }
+    .person {
     max-width: 1440px;
     width: 100%;
     height: 402px;
     margin: 0 auto;
-    margin-top: 80px;
     background-color: #201A3D;
     @media(max-width: 545px) {
-        width: 100%;
-        height: 100%
+            width: 100%;
+            height: 100%;
+            z-index: 9991;
     }
     .person__container {
         display: flex;
@@ -113,7 +124,7 @@
                         line-height: 22px;
                         color: #FFFFFF;
                         @media(max-width: 545px) {
-                            font-size: 14px;
+                            font-size: 12px;
                             line-height: 17px;
                         }
                         img {
@@ -133,5 +144,6 @@
             }
         }
     }
+}
 }
 </style>

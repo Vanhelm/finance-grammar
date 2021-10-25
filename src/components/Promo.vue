@@ -8,12 +8,13 @@
                 <div class="text-block">
                     <h2>
                         промо ролик миникурса <br>
-                        <span class="green" @click="showVideos = !showVideos">«основы финансовой <br> грамотности»</span>
+                        <span class="green" >«основы финансовой <br> грамотности»</span>
                     </h2>
-                    <popup class="desktop-btn"/>
+                    <button @click="showVideos = !showVideos" class="course-btn">Смотреть курс</button>
                 </div>
             </div>
             <img src="@/assets/rocket1.png" alt="">
+            <button @click="showVideos = !showVideos" class="course-btn-mobile">Смотреть курс</button>
         </div>
         <div class="videos" v-if="showVideos">
             <div class="container">
@@ -24,6 +25,7 @@
                     </h3>
                 </div>
                 <div class="videos__body" v-for="(video, id) in videos" :key='id'>
+                    <div class="overlay"></div>
                     <div class="video">
                         <iframe class="frame"  :src="video.link" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
@@ -49,9 +51,8 @@
 </template>
 
 <script>
-import Popup from './Popup.vue'
     export default {
-  components: { Popup },
+  components: {  },
         data() {
             return {
                 videos: [
@@ -92,11 +93,15 @@ import Popup from './Popup.vue'
     max-width: 1440px;
     width: 100%;
     margin: 0 auto;
+    // @media(max-width: 545px) {
+    // }
     .promo { 
         position: relative;
         margin-bottom: 100px;
         @media(max-width: 545px) {
-            margin-bottom: 50px;
+            margin-bottom: 0;
+            background-color: #fff;
+            z-index: 9991;
         }
         .container {
             display: flex;
@@ -116,9 +121,9 @@ import Popup from './Popup.vue'
                 width: 657px;
                 height: 384px;
                 @media(max-width: 545px) {
-                    width: 335px;
-                    height: 300px;
+                    width: 100%;
                     margin: 0 auto;
+                    padding: 20px;
                 }
                 iframe {
                     width: 100%;
@@ -160,17 +165,52 @@ import Popup from './Popup.vue'
                         display: none;
                     }
                 }
+                .course-btn {
+                    width: 240px;
+                    height: 50px;
+                    padding: 5px 55px;
+                    background: #58BE00;
+                    border-radius: 40px;
+                    border: 1px solid;
+                    border-color: #58BE00;
+                    cursor: pointer;
+                    color: #201A3D;
+                    cursor: pointer;
+                    @media(max-width: 545px) {
+                        display: none;
+                    }
+        }
             }
         }
         img {
             position: absolute;
             right: 44px;
-            bottom: -110px;
+            bottom: -15px;
             width: 25%;
             animation: fadeOutTopRight;
             animation-duration: 2s;
             @media(max-width: 545px) {
-                bottom: 0;
+                width: 35%;
+                bottom: 70px;
+                right: 35px;
+            }
+        }
+        .course-btn-mobile {
+            width: 240px;
+            height: 50px;
+            padding: 5px 55px;
+            background: #58BE00;
+            border-radius: 40px;
+            border: 1px solid;
+            border-color: #58BE00;
+            cursor: pointer;
+            color: #201A3D;
+            @media(max-width: 545px) {
+                margin: 20px;
+                width: 88%;
+            }
+            @media(min-width: 545px) {
+                display: none;
             }
         }
     }
@@ -212,25 +252,31 @@ import Popup from './Popup.vue'
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
+                position: relative;
                 @media(max-width: 545px) {
                     flex-direction: column;
+                }
+                .overlay {
+                    background: #eeeeeea6;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 20px
                 }
                 .video {
                     width: 657px;
                     height: 384px;
                     @media(max-width: 545px) {
-                        width: 335px;
-                        height: 300px;
+                        width: 100%;
                         margin: 0 auto;
+                        padding: 20px;
                     }
                     iframe {
                         width: 657px;
                         height: 384px;
                         border-radius: 20px;
                         @media(max-width: 545px) {
-                            width: 335px;
-                            height: 300px;
-                            margin: 0 auto;
+                            width: 100%;
                         }
                     }
                 }
@@ -293,6 +339,7 @@ import Popup from './Popup.vue'
                     }
                 }
             }
+            
         }
     }
 }

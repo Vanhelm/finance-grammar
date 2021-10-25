@@ -12,24 +12,53 @@
   
   <!-- modal -->
   <div class="modal" v-if="showModal">
-    <button class="close" @click="showModal = false">x</button>
-    <h3>Title</h3>
-    <p>Description</p>
+    <button class="close" @click="showModal = false">&#10005;</button>
+    <div class="form__block">
+      <div class="img-block"><img src="@/assets/present.png" alt=""></div>
+      <div class="container">  
+          <form id="contact" @submit.prevent="submitForm" action="https://tb7.bitrix24.kz/rest/1/4698w31hpdcjolls/" method="post">
+              <h3>Занимайте место</h3>
+              <h4>
+                  Регистрируйся на вебинар и получи 
+                  мини-курс в подарок
+              </h4>
+              <fieldset>
+                  <input v-model="this.name" placeholder="Имя Фамилия" type="text" tabindex="1" required autofocus>
+                  <input v-model="this.phone" placeholder="+7 (---) --- -- --" type="tel" tabindex="3" required>
+                  <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" @click="submitForm">Зарегистрироваться</button>
+                  <span class="warning">Колличество мест ограниченно</span>
+              </fieldset>
+          </form>
+      </div>
+    </div>
   </div>
   
 </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'Button.vue',
   data() {
     return {
-      showModal: false
+      showModal: false,
+      name: '',
+      phone: ''
     }
   },
   methods: {
-    
+    submitForm()  {
+      axios.post(
+        'https://formspree.io/f/xayadkeb',
+        {name: this.name, phone: this.phone}
+      )
+      .then((response) => {
+        console.log(response);
+      })
+      this.name = ''
+      this.phone = ''
+    }
   },
   computed: {
   }
@@ -39,11 +68,15 @@ export default {
 <style lang="scss" scoped>
 .modal-vue {
   .btn__wrapper {
+    display: none;
     @media(max-width: 545px) {
+      display: block;
         position: fixed;
         left: 0;
         width: 100%;
         padding: 20px;
+        z-index: 999;
+        bottom: 0;
       }
     .btn {
       width: 240px;
@@ -77,20 +110,167 @@ export default {
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 9999;
-        width: 50%;
-        height: 50%;
         background-color: #FFF;
         border-radius: 16px;
         padding: 25px;
         @media(max-width: 545px) {
-            width: 80%;
-            height: 50%;
+          background-color: #EEEEEE;
+            // width: 80%;
+            // height: 50%;
+        }
+        .form__block {
+          display: flex;
+          flex-direction: row;
+            .img-block {
+              width: 576px;
+              height: 380px;
+              @media(max-width: 545px) {
+                display: none;
+              }
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+            .container {
+                max-width: 400px;
+                width: 100%;
+                margin: 0 auto;
+                position: relative;
+                
+                #contact {
+                    background: #EEEEEE;
+                    border-radius: 20px;
+                    padding: 25px;
+                    // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+                    @media(max-width: 545px) {
+                        position: relative;
+                        padding: 0;
+                        // top: -50px;
+                    }
+                    h3 {
+                        display: block;
+                        font-family: Exo 2;
+                        font-style: normal;
+                        font-weight: bold;
+                        font-size: 36px;
+                        line-height: 43px;
+                        text-transform: uppercase;
+                        color: #201A3D;
+                        margin-bottom: 15px;
+                        @media(max-width: 545px) {
+                            display: flex;
+                            justify-content: center;
+                            font-size: 17px;
+                            line-height: 24px;
+                            margin-bottom: 11px;
+                            margin-top: 20px;
+                        }
+                    }
+                    h4 {
+                        margin: 5px 0 52px;
+                        display: block;
+                        font-style: normal;
+                        font-weight: bold;
+                        font-size: 18px;
+                        line-height: 22px;
+                        color: #201A3D;
+                        @media(max-width: 545px) {
+                            margin: 5px 0 23px;
+                            display: flex;
+                            justify-content: center;
+                            font-size: 11px;
+                            line-height: 17px;
+                        }
+                    }
+                    fieldset {
+                        border: medium none !important;
+                        margin: 0 0 10px;
+                        min-width: 100%;
+                        padding: 0;
+                        width: 100%;
+                        input[type="text"],
+                        input[type="tel"] {
+                            width: 100%;
+                            background: #FFFFFF;
+                            border: 1px solid #CCCCCC;
+                            box-sizing: border-box;
+                            border-radius: 10px;
+                            margin: 0 0 24px;
+                            padding: 10px;
+                            @media(max-width: 545px) {
+                                margin: 5px 0 13px;
+                            }
+                        }
+                        input[type="text"]:hover,
+                        input[type="email"]:hover,
+                        input[type="tel"]:hover,
+                        input[type="url"]:hover {
+                            -webkit-transition: border-color 0.3s ease-in-out;
+                            -moz-transition: border-color 0.3s ease-in-out;
+                            transition: border-color 0.3s ease-in-out;
+                            border: 1px solid #aaa;
+                        }
+                        input:focus {
+                            outline: 0;
+                            border: 1px solid #aaa;
+                        }
+                        button[type="submit"] {
+                            cursor: pointer;
+                            width: 100%;
+                            border: none;
+                            border-radius: 40px;
+                            background: #58BE00;
+                            color: #201A3D;
+                            margin: 0 0 5px;
+                            padding: 10px;
+                            font-size: 15px;
+                        }
+                        button[type="submit"]:hover {
+                            background: #43A047;
+                            -webkit-transition: background 0.3s ease-in-out;
+                            -moz-transition: background 0.3s ease-in-out;
+                            transition: background-color 0.3s ease-in-out;
+                        }
+                        button[type="submit"]:active {
+                            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+                        }
+                        .warning {
+                            font-family: Exo 2;
+                            font-style: normal;
+                            font-weight: bold;
+                            font-size: 18px;
+                            line-height: 22px;
+                            color: #58BE00;
+                            display: flex;
+                            justify-content: center;
+                            margin-top: 11px;
+                            @media(max-width: 545px) {
+                                font-style: normal;
+                                font-weight: bold;
+                                font-size: 10px;
+                                line-height: 17px;
+                                margin-top: 0;
+                            }
+                        }
+                    }
+                    
+                }
+
+            }
         }
     }
     .close{
         position: absolute;
         top: 10px;
         right: 10px;
+        border-radius: 2rem;
+        border: 1px solid #58BE00;
+        width: 22px;
+        height: 23px;
+        color: #fff;
+        background-color: #58BE00;
+        cursor: pointer;
     }
 }
 

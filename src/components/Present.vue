@@ -117,7 +117,6 @@ import Popup from './Popup.vue'
                 left: 47px;
                 max-width: 795px;
                 max-height: 525px;
-                z-index: 90;
                 @media(max-width: 545px) {
                     left: -15px;
                     top: 18px;
