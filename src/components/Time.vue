@@ -8,14 +8,17 @@
             </div>
             <div class="form__block">
                 <div class="container">  
-                    <form id="contact" action="" method="post">
-                        <h3>Занимайте место</h3>
+                    <form id="contact" @submit.prevent="submitForm" action="" method="post">
+                        <h3>{{this.$store.state.access ? 'Поздравляем, вы зарегистрированы' : 'Занимайте место'}}</h3>
                         <h4>
                             <Counter/>
                         </h4>
-                        <fieldset>
-                            <input placeholder="Имя Фамилия" type="text" tabindex="1" required autofocus>
-                            <input placeholder="+7 (---) --- -- --" type="tel" tabindex="3" required>
+                        <div v-if="this.$store.state.access" class="congratulations">
+                            <h4>Открыты все видео уроки на данном сайте</h4>
+                        </div>
+                        <fieldset v-else>
+                            <input v-model="name" placeholder="Имя Фамилия" type="text" tabindex="1" required >
+                            <input v-model="number" :placeholder="this.phone" type="tel" tabindex="2" required>
                             <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Зарегистрироваться</button>
                             <span class="warning">Колличество мест ограниченно</span>
                         </fieldset>
@@ -27,12 +30,37 @@
 </template>
 
 <script>
+import axios from 'axios'
 import Counter from './Counter.vue'
 export default {
   components: { Counter },
         data() {
             return {
-                
+                name: '',
+                number: '',
+                phone: '(XXX) XXX-XXXX',
+            }
+        },
+        methods: {
+            submitForm()  {
+                axios.post(
+                    'https://formspree.io/f/xayadkeb',
+                    {name: this.name, phone: this.number}
+                )
+                .then((response) => {
+                    console.log(response);
+                })
+                this.name = ''
+                this.number = ''
+                this.$store.commit("switch")
+                console.log(this.$store.state.access);
+            }
+        },
+        watch: {
+            number() {
+                this.number = this.number.replace(/[^0-9]/g, '')
+                .replace(/^(\d{3})(\d{3})(\d{4})/g, '($1) $2-$3')
+                .substring(0, this.phone.length)
             }
         }
     }

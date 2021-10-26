@@ -13,6 +13,7 @@
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
     "vue-axios": "^3.3.7",
+    "vue-imask": "^6.2.2",
     "vue-router": "^4.0.0-0",
     "vue-youtube-iframe-api": "^0.1.2",
     "vuex": "^4.0.0-0"

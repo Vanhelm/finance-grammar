@@ -16,16 +16,16 @@
     <div class="form__block">
       <div class="img-block"><img src="@/assets/present.png" alt=""></div>
       <div class="container">  
-          <form id="contact" @submit.prevent="submitForm" action="https://tb7.bitrix24.kz/rest/1/4698w31hpdcjolls/" method="post">
+          <form id="contact" @submit.prevent="submitForm"  method="post">
               <h3>Занимайте место</h3>
               <h4>
                   Регистрируйся на вебинар и получи 
                   мини-курс в подарок
               </h4>
               <fieldset>
-                  <input v-model="this.name" placeholder="Имя Фамилия" type="text" tabindex="1" required autofocus>
-                  <input v-model="this.phone" placeholder="+7 (---) --- -- --" type="tel" tabindex="3" required>
-                  <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" @click="submitForm">Зарегистрироваться</button>
+                  <input v-model="name" placeholder="Имя Фамилия" type="text" tabindex="1" required autofocus>
+                  <input v-model="number" :placeholder="this.phone" type="tel" tabindex="2" required>
+                  <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Зарегистрироваться</button>
                   <span class="warning">Колличество мест ограниченно</span>
               </fieldset>
           </form>
@@ -44,23 +44,33 @@ export default {
     return {
       showModal: false,
       name: '',
-      phone: ''
+      number: '',
+      phone: '(XXX) XXX-XXXX',
+
     }
   },
   methods: {
     submitForm()  {
       axios.post(
         'https://formspree.io/f/xayadkeb',
-        {name: this.name, phone: this.phone}
+        {name: this.name, phone: this.number}
       )
       .then((response) => {
         console.log(response);
       })
       this.name = ''
-      this.phone = ''
+      this.number = ''
+      this.showModal = false
+      this.$store.commit("switch")
+      console.log(this.$store.state.access);
     }
   },
-  computed: {
+  watch: {
+    number() {
+        this.number = this.number.replace(/[^0-9]/g, '')
+        .replace(/^(\d{3})(\d{3})(\d{4})/g, '($1) $2-$3')
+        .substring(0, this.phone.length)
+    }
   }
 }
 </script>
@@ -68,9 +78,8 @@ export default {
 <style lang="scss" scoped>
 .modal-vue {
   .btn__wrapper {
-    display: none;
     @media(max-width: 545px) {
-      display: block;
+        display: block;
         position: fixed;
         left: 0;
         width: 100%;

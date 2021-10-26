@@ -119,7 +119,7 @@ import Popup from './Popup.vue'
                         img {
                             width: 90%;
                             @media(max-width: 545px) {
-                                width: 100%;
+                                width: 90%;
                             }
                         }
                     }
@@ -143,8 +143,6 @@ import Popup from './Popup.vue'
                     .img__wrapper {
                         position: relative;
                         top: -80px;
-                        width: 400px;
-                        height: 400px;
                         img {
                             width: 100%;
                         }

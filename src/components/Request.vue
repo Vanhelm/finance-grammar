@@ -1,16 +1,52 @@
 <template>
     <div class="form-wrapper">
-        <form action="#" class="form">
-            <input id="name" type="text" placeholder="Имя Фамилия">
-            <input id="phone" type="tel">
-            <button class="btn">Зарегистрироваться</button>
+        <form id="contact" @submit.prevent="submitForm"  method="post" class="form">
+            <input id="name"  v-model="name" placeholder="Имя Фамилия" type="text" tabindex="1" required>
+            <input id="phone" v-model="number" :placeholder="phone" type="tel" tabindex="2" required>
+            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="btn">Зарегистрироваться</button>
         </form>
     </div>
 </template>
 
 <script>
+import axios from 'axios'
     export default {
-
+        props: {
+            access: {
+                required: true,
+                type: Boolean
+            },
+        },
+        data() {
+            return {
+                name: '',
+                number: '',
+                trigger: false,
+                phone: '(XXX) XXX-XXXX',
+            }
+        },
+        methods: {
+            submitForm()  {
+                axios.post(
+                    'https://formspree.io/f/xayadkeb',
+                    {name: this.name, phone: this.number}
+                )
+                .then((response) => {
+                    console.log(response);
+                })
+                this.name = ''
+                this.number = ''
+                this.$store.commit("switch")
+                console.log(this.$store.state.access);
+            }
+        },
+        watch: {
+            number() {
+                this.number = this.number.replace(/[^0-9]/g, '')
+                .replace(/^(\d{3})(\d{3})(\d{4})/g, '($1) $2-$3')
+                .substring(0, this.phone.length)
+            },
+        },
     }
 </script>
 

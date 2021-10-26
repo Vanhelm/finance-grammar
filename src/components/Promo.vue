@@ -25,9 +25,10 @@
                     </h3>
                 </div>
                 <div class="videos__body" v-for="(video, id) in videos" :key='id'>
-                    <div class="overlay"></div>
+                    <div v-if="this.$store.state.access" class="overlay"></div>
                     <div class="video">
-                        <iframe class="frame"  :src="video.link" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="frame" v-if="this.$store.state.access" :src="video.link" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div v-else class="inaccessible"><img src="@/assets/inaccessible.jpg" alt=""><span class="warrning-text">Доступно, после регистраций</span></div>
                     </div>
                     <div class="text">
                         <div class="header">
@@ -256,13 +257,6 @@
                 @media(max-width: 545px) {
                     flex-direction: column;
                 }
-                .overlay {
-                    background: #eeeeeea6;
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 20px
-                }
                 .video {
                     width: 657px;
                     height: 384px;
@@ -278,6 +272,31 @@
                         @media(max-width: 545px) {
                             width: 100%;
                         }
+                    }
+                    .inaccessible {
+                        position: relative;
+                        img {
+                        width: 657px;
+                        height: 384px;
+                        border-radius: 20px;
+                            @media(max-width: 545px) {
+                                width: 100%;
+                            }
+                        }
+                        .warrning-text {
+                            position: absolute;
+                            color: #58BE00;
+                            top: 50%;
+                            left: 30%;
+                            font-weight: bold;
+                            font-size: 20px;
+                            @media(max-width: 545px) {
+                                top: 50%;
+                                left: 10%;
+                                font-weight: bold;
+                                font-size: 17px;
+                            }
+                        }   
                     }
                 }
                 .text {

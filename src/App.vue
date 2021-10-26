@@ -19,6 +19,11 @@ import Person from './components/Person.vue';
 import Time from './components/Time.vue';
 
 export default {
+  data() {
+    return {
+      
+    }
+  },
   components: {
     Topbasics,
     Request,

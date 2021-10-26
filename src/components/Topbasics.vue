@@ -32,6 +32,7 @@
                     <img class="activate'" src="@/assets/rocket1.png" alt="">
                 </div>
             </section>
+            <scroll/>
             <popup class="mobile"/>
         </div>
     </div>
@@ -39,6 +40,7 @@
 
 <script>
 import Popup from './Popup.vue'
+import Scroll from './Scroll.vue'
     export default {
         data() {
             return {
@@ -47,30 +49,14 @@ import Popup from './Popup.vue'
             }
         },
         components: {
-            Popup
+            Popup,
+                Scroll
         },
         methods: {
-            flying() {
-                console.log('fly');
-                this.fly = true
-                let rocket = document.querySelector('.fly')
-                setTimeout(() => {
-                    rocket.style['display'] = "none"
-                },2000)
-            },
-            playVideo() {
-                this.player.playVideo()
-                console.log("play");
-                // Do something after the playVideo command
-            },
-            playing() {
-                console.log("we are watching!!!")
-            }
+            
         },
         computed: {
-            player() {
-                return this.$refs.youtube.player
-            }
+            
         }
     }
 </script>
@@ -205,7 +191,7 @@ import Popup from './Popup.vue'
                     position: absolute;
                     bottom: -30px;
                     @media(max-width: 545px) {
-                        display: none;
+                        // display: none;
                     }
                 }
             }
@@ -273,7 +259,7 @@ import Popup from './Popup.vue'
                 }
             }
         }
-        .mobile::before {
+        .mobile {
             padding: 20px;
             position: sticky;
             @media(min-width: 900px) {
