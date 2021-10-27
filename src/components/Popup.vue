@@ -27,7 +27,7 @@
                   <span v-if="this.errorName" class="error">*Имя должно быть не меньше 3 букв</span>
                   <input v-model="mail" type="email" placeholder="Электронная почта" required>
                   <input v-model="number" :placeholder="this.phone" type="tel" tabindex="2" required>
-                  <span v-if="this.errorNum" class="error">*введите корректный телефон (пример: +7 (000)- (000) (00) (00))</span>
+                  <span v-if="this.errorNum" class="error">*введите корректный телефон (пример: +7 (000)000-0000)</span>
                   <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Зарегистрироваться</button>
                   <span class="warning">Колличество мест ограниченно</span>
               </fieldset>

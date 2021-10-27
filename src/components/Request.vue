@@ -1,28 +1,28 @@
 <template>
     <div class="form-wrapper">
         <form id="contact" @submit.prevent="submitForm"  method="post" class="form">
-            <input id="name"  v-model="name" placeholder="Имя Фамилия" type="text" tabindex="1" required>
-            <input id="phone" v-model="number" :placeholder="phone" type="tel" tabindex="2" required>
-            <input id="mail" v-model="mail" placeholder="Электронная почта" type="email" tabindex="3" required>
-            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="btn">Зарегистрироваться</button>
+            <input id="name"  v-model="name" placeholder="Имя Фамилия" name="formParams[full_name]" type="text" tabindex="1" required>
+            <input id="phone" v-model="number" :placeholder="phone" name="formParams[phone]" type="tel" tabindex="2" required>
+            <input id="mail" v-model="mail" placeholder="Электронная почта" name="formParams[email]" type="email" tabindex="3" required>
+            <button name="submit" @click="double" type="submit" id="contact-submit" data-submit="...Sending" class="btn">Зарегистрироваться</button>
         </form>
             <div class="errors">
                 <span v-if="this.errorName" class="error">*Имя должно быть не меньше 3 букв</span>
                 <span v-if="this.errorNum" class="error">*введите корректный телефон (пример: +7 (000)- (000) (00) (00))</span>
             </div>
 
-        <!-- <form id="ltForm4257283" @submit.prevent="submitForm" class="form" action="https://lab.tb7.kz/pl/lite/block-public/process-html?id=1199043895" method="post" data-open-new-window="0"><input type="hidden" name="formParams[setted_offer_id]" ><br>
-            <input type="text" maxlength="60"  placeholder="Введите ваш эл. адрес" name="formParams[email]" v-model="mail" ><br>
-            <input type="text" maxlength="60"  placeholder="Введите ваше имя" name="formParams[full_name]" v-model="name"><br>
-            <input type="text" maxlength="60"  placeholder="Введите ваш телефон" name="formParams[phone]" v-model="number"><br>
-            <button type="submit" id="contact-submit" onclick="if(window['btnprs61790360e03a6']){return false;}window['btnprs61790360e03a6']=true;setTimeout(function(){window['btnprs61790360e03a6']=false},6000);return true;">Записаться</button><br>
-            <input type="hidden" id="51377661790360d2670" name="_gcinternalformhelper" class="gcinternalform_helper" value="">
+        <form class="second-form" id="ltForm4257283"  action="https://lab.tb7.kz/pl/lite/block-public/process-html?id=1199043895" method="post" data-open-new-window="0"><input type="hidden" name="formParams[setted_offer_id]" ><br>
+            <input type="text" maxlength="60"  placeholder="Введите ваше имя" name="formParams[full_name]" :value="this.name"><br>
+            <input type="text" maxlength="60"  placeholder="Введите ваш телефон" name="formParams[phone]" :value="this.number"><br>
+            <input type="text" maxlength="60"  placeholder="Введите ваш эл. адрес" name="formParams[email]" :value="this.mail" ><br>
+                <button class="second-btn" type="submit" id="button1740842" style="color: ; background-color: ; border-radius:  !important; " onclick="if(window['btnprs61790360e03a6']){return false;}window['btnprs61790360e03a6']=true;setTimeout(function(){window['btnprs61790360e03a6']=false},6000);return true;">Записаться</button><br>
+            <!-- <input type="hidden" id="51377661790360d2670" name="_gcinternalformhelper" class="gcinternalform_helper" value="">
             <input type="hidden" id="51377661790360d2670ref" name="_gcinternalformhelper_ref" class="gcinternalform_helper_ref" value="">
             <input type="hidden" name="requestTime" value="1635320672">
             <input type="hidden" name="requestSimpleSign" value="5adb6b8a4a16183e49a1f916e4af2026">
-            <input type="hidden" name="isHtmlWidget" value="1"/>
+            <input type="hidden" name="isHtmlWidget" value="1"/> -->
         </form>
-        <span id="gccounterImgContainer"></span> -->
+        <span id="gccounterImgContainer"></span>
     </div>
 </template>
 
@@ -73,15 +73,17 @@ import axios from 'axios'
                     this.$store.commit("switch")
                 } else if (this.name.length < 3) {
                     this.errorName = true
-                    this.name = ''
-                    this.number = ''
-                    this.mail = ''
-                }  else {
                     this.errorNum = true
                     this.name = ''
                     this.number = ''
                     this.mail = ''
-                }
+                } 
+            },
+            double() {
+                let btn = document.querySelector('.second-btn')
+                setTimeout(() => {
+                    btn.click()
+                }, 1000);
             }
         },
         watch: {
@@ -141,6 +143,9 @@ import axios from 'axios'
                 width: 100%;
             }
         }
+        .second-btn {
+            visibility: hidden;
+        }
     }
     .errors {
         display: flex;
@@ -161,7 +166,13 @@ import axios from 'axios'
             @media(max-width: 545px) {
                 font-size: 9px;
             }
+        }
     }
+    .second-form {
+        visibility: hidden;
+        // .second-btn {
+        //     visibility: hidden;
+        // }
     }
 }
 
