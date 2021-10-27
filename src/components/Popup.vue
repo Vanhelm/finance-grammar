@@ -24,7 +24,10 @@
               </h4>
               <fieldset>
                   <input v-model="name" placeholder="Имя Фамилия" type="text" tabindex="1" required autofocus>
+                  <span v-if="this.errorName" class="error">*Имя должно быть не меньше 3 букв</span>
+                  <input v-model="mail" type="email" placeholder="Электронная почта" required>
                   <input v-model="number" :placeholder="this.phone" type="tel" tabindex="2" required>
+                  <span v-if="this.errorNum" class="error">*введите корректный телефон (пример: +7 (000)- (000) (00) (00))</span>
                   <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Зарегистрироваться</button>
                   <span class="warning">Колличество мест ограниченно</span>
               </fieldset>
@@ -45,25 +48,50 @@ export default {
       showModal: false,
       name: '',
       number: '',
+      mail: '',
+      user: {
+        name: 'name',
+        phone: 'phone',
+        email: 'email'
+      },
       phone: '(XXX) XXX-XXXX',
+      errorNum: null,
+      errorName: null
 
     }
   },
   methods: {
     submitForm()  {
-      axios.post(
-        'https://formspree.io/f/xayadkeb',
-        {name: this.name, phone: this.number}
-      )
-      .then((response) => {
-        console.log(response);
-      })
-      this.name = ''
-      this.number = ''
-      this.showModal = false
-      this.$store.commit("switch")
-      console.log(this.$store.state.access);
-    }
+      if (this.number.length == this.phone.length && this.name.length > 3) {
+          this.user.name = this.name
+          this.user.phone = this.number
+          this.user.email = this.mail
+          localStorage.user = JSON.stringify(this.user)
+          
+
+          axios.post(
+              'https://lab.tb7.kz/pl/lite/block-public/process-html?id=1199043895',
+              {name: this.name, phone: this.number, email: this.mail}
+          )
+          .then((response) => {
+              console.log(response);
+          })
+          this.name = ''
+          this.number = ''
+          this.mail = ''
+          this.$store.commit("switch")
+      } else if (this.name.length < 3) {
+          this.errorName = true
+          this.name = ''
+          this.number = ''
+          this.mail = ''
+      }  else {
+          this.errorNum = true
+          this.name = ''
+          this.number = ''
+          this.mail = ''
+      }
+  }
   },
   watch: {
     number() {
@@ -71,6 +99,13 @@ export default {
         .replace(/^(\d{3})(\d{3})(\d{4})/g, '($1) $2-$3')
         .substring(0, this.phone.length)
     }
+  },
+  created() {
+      if (localStorage.user == null) {
+          this.$store.state.access = false
+      } else {
+          this.$store.state.access = true
+      }
   }
 }
 </script>
@@ -124,7 +159,7 @@ export default {
         padding: 25px;
         @media(max-width: 545px) {
           background-color: #EEEEEE;
-            // width: 80%;
+          width: 77%;
             // height: 50%;
         }
         .form__block {
@@ -198,8 +233,7 @@ export default {
                         min-width: 100%;
                         padding: 0;
                         width: 100%;
-                        input[type="text"],
-                        input[type="tel"] {
+                        input {
                             width: 100%;
                             background: #FFFFFF;
                             border: 1px solid #CCCCCC;
@@ -260,6 +294,18 @@ export default {
                                 font-size: 10px;
                                 line-height: 17px;
                                 margin-top: 0;
+                            }
+                        }
+                        .error {
+                            position: relative;
+                            bottom: 15px;
+                            font-style: normal;
+                            font-weight: bold;
+                            font-size: 11px;
+                            line-height: 14px;
+                            color: #FF1515;
+                            @media(max-width: 545px) {
+                                font-size: 9px;
                             }
                         }
                     }

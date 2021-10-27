@@ -14,11 +14,14 @@
                             <Counter/>
                         </h4>
                         <div v-if="this.$store.state.access" class="congratulations">
-                            <h4>Открыты все видео уроки на данном сайте</h4>
+                            <h4>Все видео уроки открыты на данном сайте</h4>
                         </div>
                         <fieldset v-else>
                             <input v-model="name" placeholder="Имя Фамилия" type="text" tabindex="1" required >
+                            <span v-if="this.errorName" class="error">*Имя должно быть не меньше 3 букв</span>
                             <input v-model="number" :placeholder="this.phone" type="tel" tabindex="2" required>
+                            <span v-if="this.errorNum" class="error">*введите корректный телефон (пример: +7 (000)- (000) (00) (00))</span>
+                            <input v-model="mail" type="email" placeholder="Электронная почта" required tabindex="3">
                             <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Зарегистрироваться</button>
                             <span class="warning">Колличество мест ограниченно</span>
                         </fieldset>
@@ -38,22 +41,48 @@ export default {
             return {
                 name: '',
                 number: '',
+                mail: '',
+                user: {
+                    name: 'name',
+                    phone: 'phone',
+                    email: 'email'
+                },
                 phone: '(XXX) XXX-XXXX',
+                errorNum: null,
+                errorName: null
             }
         },
         methods: {
             submitForm()  {
-                axios.post(
-                    'https://formspree.io/f/xayadkeb',
-                    {name: this.name, phone: this.number}
-                )
-                .then((response) => {
-                    console.log(response);
-                })
-                this.name = ''
-                this.number = ''
-                this.$store.commit("switch")
-                console.log(this.$store.state.access);
+                if (this.number.length == this.phone.length && this.name.length > 3) {
+                    this.user.name = this.name
+                    this.user.phone = this.number
+                    this.user.email = this.mail
+                    localStorage.user = JSON.stringify(this.user)
+                    
+
+                    axios.post(
+                        'https://lab.tb7.kz/pl/lite/block-public/process-html?id=1199043895',
+                        {name: this.name, phone: this.number, email: this.mail}
+                    )
+                    .then((response) => {
+                        console.log(response);
+                    })
+                    this.name = ''
+                    this.number = ''
+                    this.mail = ''
+                    this.$store.commit("switch")
+                } else if (this.name.length < 3) {
+                    this.errorName = true
+                    this.name = ''
+                    this.number = ''
+                    this.mail = ''
+                }  else {
+                    this.errorNum = true
+                    this.name = ''
+                    this.number = ''
+                    this.mail = ''
+                }
             }
         },
         watch: {
@@ -61,6 +90,13 @@ export default {
                 this.number = this.number.replace(/[^0-9]/g, '')
                 .replace(/^(\d{3})(\d{3})(\d{4})/g, '($1) $2-$3')
                 .substring(0, this.phone.length)
+            }
+        },
+        created() {
+            if (localStorage.user == null) {
+                this.$store.state.access = false
+            } else {
+                this.$store.state.access = true
             }
         }
     }
@@ -129,6 +165,7 @@ export default {
                         color: #201A3D;
                         margin-bottom: 15px;
                         @media(max-width: 545px) {
+                            text-align: center;
                             display: flex;
                             justify-content: center;
                             font-size: 20px;
@@ -146,6 +183,7 @@ export default {
                         line-height: 22px;
                         color: #201A3D;
                         @media(max-width: 545px) {
+                            text-align: center;
                             margin: 5px 0 23px;
                             display: flex;
                             justify-content: center;
@@ -159,8 +197,7 @@ export default {
                         min-width: 100%;
                         padding: 0;
                         width: 100%;
-                        input[type="text"],
-                        input[type="tel"] {
+                        input {
                             width: 100%;
                             background: #FFFFFF;
                             border: 1px solid #CCCCCC;
@@ -204,6 +241,18 @@ export default {
                         }
                         button[type="submit"]:active {
                             box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+                        }
+                        .error {
+                            position: relative;
+                            bottom: 15px;
+                            font-style: normal;
+                            font-weight: bold;
+                            font-size: 11px;
+                            line-height: 14px;
+                            color: #FF1515;
+                            @media(max-width: 545px) {
+                                font-size: 9px;
+                            }
                         }
                         .warning {
                             font-family: Exo 2;
