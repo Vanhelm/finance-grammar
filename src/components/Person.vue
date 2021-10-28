@@ -41,7 +41,7 @@
             z-index: 9991;
     }
     .person {
-    max-width: 1440px;
+    // max-width: 1440px;
     width: 100%;
     height: 402px;
     margin: 0 auto;
@@ -70,7 +70,7 @@
                 position: relative;
                 top: -135px;
                 left: -135px;
-                width: 100%;
+                width: 80%;
                 @media(max-width: 545px) {
                         top: -106px;
                         left: -20px;

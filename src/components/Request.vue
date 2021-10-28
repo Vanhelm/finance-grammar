@@ -50,14 +50,14 @@ import axios from 'axios'
                     
 
                     axios.post(
-                        'https://lab.tb7.kz/pl/lite/block-public/process-html?id=1199043895',
+                        'https://b24-nqeaci.bitrix24.kz/rest/9/i0rn7kme0y9pj731/profile.json',
                         {name: this.name, phone: this.number, email: this.mail}
                     )
                     .then((response) => {
                         console.log(response);
                     })
-                    let btn = document.querySelector('.second-btn')
-                    btn.click()
+                    // let btn = document.querySelector('.second-btn')
+                    // btn.click()
                     this.name = ''
                     this.number = ''
                     this.mail = ''
@@ -92,7 +92,7 @@ import axios from 'axios'
 .form-wrapper {
     display: flex;
     flex-direction: column;
-    max-width: 1440px;
+    // max-width: 1440px;
     width: 100%;
     background-color: #EEEEEE;
     margin: 0 auto; 
