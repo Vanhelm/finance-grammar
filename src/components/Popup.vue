@@ -18,10 +18,10 @@
       <div class="container">  
           <form id="contact" @submit.prevent="submitForm"  method="post">
               <h3>Занимайте место</h3>
-              <h4>
+              <!-- <h4>
                   Регистрируйся на вебинар и получи 
                   мини-курс в подарок
-              </h4>
+              </h4> -->
               <fieldset>
                   <input v-model="name" placeholder="Имя Фамилия" type="text" tabindex="1" required autofocus>
                   <span v-if="this.errorName" class="error">*Имя должно быть не меньше 3 букв</span>

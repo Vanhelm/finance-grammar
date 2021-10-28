@@ -7,7 +7,7 @@
                 </div>
                 <div class="text-block">
                     <h2>
-                        промо ролик миникурса <br>
+                        промо ролик мини-курса <br>
                         <span class="green" >«основы финансовой <br> грамотности»</span>
                     </h2>
                     <!-- <button @click="showVideos = !showVideos" class="course-btn">Смотреть курс</button> -->
@@ -104,8 +104,9 @@
     max-width: 1440px;
     width: 100%;
     margin: 0 auto;
-    // @media(max-width: 545px) {
-    // }
+    @media(max-width: 545px) {
+        margin-top: 90px;
+    }
     .promo { 
         position: relative;
         margin-bottom: 100px;

@@ -2,8 +2,8 @@
     <div class="wrapper__awaiting">
         <div class="awaiting">
             <div class="awaiting__header">
-                <h2>ЧТО ВАС ЖДЕТ НА <span class="green">ВЕБИНАРЕ</span></h2>
-                <div class="title">Some title</div>
+                <h2>ЧТО ВАС ЖДЕТ НА<span class="green"> мини-курсе</span></h2>
+                <div class="title">Самое важное для вашего финансового благополучия</div>
             </div>
             <div class="awaiting__body">
                 <div class="container">
@@ -32,7 +32,7 @@
                             <img src="@/assets/third.png" alt="">
                         </div>
                         <div class="text__wrapper">
-                            <p>Расскажем о нажежных и <br>
+                            <p>Расскажем о надежных и <br>
                             выгодных видах инвестиций</p>
                         </div>
                         <div class="background"></div>

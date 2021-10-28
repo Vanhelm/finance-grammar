@@ -9,7 +9,7 @@
             <div class="form__block">
                 <div class="container">  
                     <form id="contact" @submit.prevent="submitForm" action="" method="post">
-                        <h3>{{this.$store.state.access ? 'Поздравляем, вы зарегистрированы' : 'Занимайте место'}}</h3>
+                        <h3>{{this.$store.state.access ? 'Поздравляем, вы зарегистрированы' : 'Войди уверенно в мир надежных инвестиций!'}}</h3>
                         <h4>
                             <Counter/>
                         </h4>

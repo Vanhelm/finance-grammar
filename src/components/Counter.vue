@@ -1,6 +1,6 @@
 <template>
     <div v-if="load">
-        До начала осталось: {{displayHours}} часа {{displayMinutes}} минут
+        Предложение действует: {{displayDays}} дней {{displayHours}} часа
     </div>
     <div v-else>
         Время вышло, вебинар завершен
@@ -39,7 +39,7 @@
             showRemaining() {
                 const timer = setInterval(() => {
                     const now = new Date();
-                    const deadline = new Date(2021, 9, 22, 10, 10, 10, 10);
+                    const deadline = new Date(2021, 10, 15, 10, 10, 10, 10);
                     const distance = deadline.getTime() - now.getTime();
 
                     if (distance < 0) {

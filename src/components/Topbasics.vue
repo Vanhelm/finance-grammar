@@ -17,7 +17,10 @@
                         грамотности
                     </h1>
                     <p>
-                        Научу привлекать больше лидов при том же <br> рекламном бюджете и не тратить своё время на <br> скучные рабочие задачи
+                        Вы узнаете, как не стать жертвой денег и управлять ими так, <br> чтобы они не имели над вами власть. 
+                        <br><br>
+                        Освоите выгодный способ инвестирования в госзакупки, <br>
+                        и поймете, почему Тендерная Биржа - лучший партнер для получения прибыли.
                     </p>
                     <popup class="popup" @click="flying"/>
                 </div>
@@ -26,7 +29,7 @@
                         <iframe class="frame" src="https://www.youtube.com/embed/qtRIPb0ufgU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; picture-in-picture" allowfullscreen></iframe>
                         <div class="text-video">
                             <span class="block">Запишись на вебинар и получи мини курс в подарок</span>
-                            <a href="#" class="block">Смотреть больше &#8594;</a>
+                            <!-- <a href="#" class="block">Смотреть больше &#8594;</a> -->
                         </div>
                     </div>
                     <img class="activate'" src="@/assets/rocket1.png" alt="">

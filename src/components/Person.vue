@@ -3,7 +3,7 @@
         <div class="person">
             <div class="person__container">
                 <div class="img__block">
-                    <img src="@/assets/person.png" alt="">
+                    <img src="@/assets/person2.png" alt="">
                 </div>
                 <div class="text__block">
                     <div class="header__block">
@@ -55,6 +55,7 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
+        position: relative;
         @media(max-width: 545px) {
             flex-direction: column;
             padding: 20px;
@@ -68,19 +69,20 @@
             }
             img {
                 position: relative;
-                top: -135px;
+                bottom: 362px;
                 left: -135px;
-                width: 80%;
+                width: 68%;
                 @media(max-width: 545px) {
-                        top: -106px;
-                        left: -20px;
+                    width: 90%;
+                    bottom: 220px;
+                    left: -20px;
                 }
             }
         }
         .text__block {
             @media(max-width: 545px) {
-                position: relative;
-                top: -118px;
+                position: absolute;
+                bottom: 65px;
             }
             .header__block {
                 display: flex;
