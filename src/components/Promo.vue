@@ -10,11 +10,11 @@
                         промо ролик миникурса <br>
                         <span class="green" >«основы финансовой <br> грамотности»</span>
                     </h2>
-                    <button @click="showVideos = !showVideos" class="course-btn">Смотреть курс</button>
+                    <!-- <button @click="showVideos = !showVideos" class="course-btn">Смотреть курс</button> -->
                 </div>
             </div>
             <img src="@/assets/rocket1.png" alt="">
-            <button @click="showVideos = !showVideos" class="course-btn-mobile">Смотреть курс</button>
+            <!-- <button @click="showVideos = !showVideos" class="course-btn-mobile">Смотреть курс</button> -->
         </div>
         <div class="videos" v-if="showVideos">
             <div class="container">
@@ -28,7 +28,7 @@
                     <div v-if="this.$store.state.access" class="overlay"></div>
                     <div class="video">
                         <iframe class="frame" v-if="this.$store.state.access" :src="video.link" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <div v-else class="inaccessible"><img :src="getImgUrl(video.src)" alt=""></div>
+                        <div v-else class="inaccessible"><img :src="getImgUrl(video.src)" alt=""><div class="overlay"></div></div>
                     </div>
                     <div class="text">
                         <div class="header">
@@ -286,14 +286,27 @@
                     }
                     .inaccessible {
                         position: relative;
-                        background-color: rgba(115, 113, 126, 0.2);
                         img {
                         width: 657px;
                         height: 384px;
                         border-radius: 20px;
                             @media(max-width: 545px) {
                                 width: 100%;
-                                height: 260px;
+                                height: 200px;
+                            }
+                        }
+                        .overlay {
+                            position: absolute;
+                            background-color: rgba(226, 225, 231, 0.6);
+                            width: 657px;
+                            height: 384px;
+                            border-radius: 20px;
+                            z-index: 995;
+                            top: 0;
+                            left: 0;
+                            @media(max-width: 545px) {
+                                width: 100%;
+                                height: 200px;
                             }
                         }
                         .warrning-text {

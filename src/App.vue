@@ -6,6 +6,7 @@
   <Promo/>
   <Person/>
   <Time/>
+  <Footerapp/>
 </template>
 
 <script>
@@ -17,6 +18,7 @@ import Awaiting from './components/Awaiting.vue';
 import Promo from './components/Promo.vue';
 import Person from './components/Person.vue';
 import Time from './components/Time.vue';
+import Footerapp from './components/Footerapp.vue';
 
 export default {
   data() {
@@ -32,6 +34,7 @@ export default {
     Promo,
     Person,
     Time,
+    Footerapp
   }
 }
 </script>

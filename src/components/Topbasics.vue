@@ -23,7 +23,7 @@
                 </div>
                 <div class="block-video">
                     <div class="wrapper">
-                        <iframe class="frame" src="https://www.youtube.com/embed/qtRIPb0ufgU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="frame" src="https://www.youtube.com/embed/qtRIPb0ufgU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; picture-in-picture" allowfullscreen></iframe>
                         <div class="text-video">
                             <span class="block">Запишись на вебинар и получи мини курс в подарок</span>
                             <a href="#" class="block">Смотреть больше &#8594;</a>
@@ -34,6 +34,7 @@
             </section>
             <scroll/>
             <popup class="mobile"/>
+            <span class="people">{{this.counter}} челевек уже посмотрели мини-курс</span>
         </div>
     </div>
 </template>
@@ -45,19 +46,23 @@ import Scroll from './Scroll.vue'
         data() {
             return {
                 fly: null,
-                videoId: 'qtRIPb0ufgU'
+                counter: '',
+                videoId: 'qtRIPb0ufgU',
             }
         },
         components: {
             Popup,
                 Scroll
         },
-        methods: {
-            
+        mounted() {
+            let now = new Date();
+            let allTime = now.getTime();
+            console.log(allTime);
+            let str = allTime.toString();
+            let number = str.substring(5,8)
+            console.log(number);
+            this.counter = number
         },
-        computed: {
-            
-        }
     }
 </script>
 
@@ -245,7 +250,7 @@ import Scroll from './Scroll.vue'
                     width: 30%;
                     top: -80px;
                     right: 10px;
-                    animation: fadeOutTopRight;
+                    animation: fadeInBottomLeft;
                     animation-duration: 2s;
                     @media(max-width: 545px) {
                         width: 40%;
@@ -265,6 +270,14 @@ import Scroll from './Scroll.vue'
             @media(min-width: 900px) {
                 display: none;
             }
+        }
+        .people {
+            padding-left: 41px;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 17px;
+            color: #58BE00;
         }
     }
 }

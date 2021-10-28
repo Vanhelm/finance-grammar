@@ -14,7 +14,7 @@
                             <Counter/>
                         </h4>
                         <div v-if="this.$store.state.access" class="congratulations">
-                            <h4>Все видео уроки открыты на данном сайте</h4>
+                            <h4>Все видео уроки теперь доступны</h4>
                         </div>
                         <fieldset v-else>
                             <input v-model="name" placeholder="Имя Фамилия" type="text" tabindex="1" required >
@@ -25,6 +25,12 @@
                             <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Зарегистрироваться</button>
                             <span class="warning">Колличество мест ограниченно</span>
                         </fieldset>
+                    </form>
+                    <form class="second-form" id="ltForm4257283"  action="https://lab.tb7.kz/pl/lite/block-public/process-html?id=1199043895" method="post" data-open-new-window="0"><input type="hidden" name="formParams[setted_offer_id]" ><br>
+                        <input type="text" maxlength="60"  placeholder="Введите ваше имя" name="formParams[full_name]" :value="this.name"><br>
+                        <input type="text" maxlength="60"  placeholder="Введите ваш телефон" name="formParams[phone]" :value="this.number"><br>
+                        <input type="text" maxlength="60"  placeholder="Введите ваш эл. адрес" name="formParams[email]" :value="this.mail" ><br>
+                        <button class="last-btn" type="submit" id="button1740842" style="color: ; background-color: ; border-radius:  !important; " onclick="if(window['btnprs61790360e03a6']){return false;}window['btnprs61790360e03a6']=true;setTimeout(function(){window['btnprs61790360e03a6']=false},6000);return true;">Записаться</button><br>
                     </form>
                 </div>
             </div>
@@ -68,19 +74,20 @@ export default {
                     .then((response) => {
                         console.log(response);
                     })
-                    this.$store.commit("switch")
-                } else if (this.name.length < 3) {
-                    this.errorName = true
+                    let btn = document.querySelector('.last-btn')
+                    btn.click()
                     this.name = ''
                     this.number = ''
                     this.mail = ''
-                }  else {
+                    this.$store.commit("switch")
+                } else  {
+                    this.errorName = true
                     this.errorNum = true
                     this.name = ''
                     this.number = ''
                     this.mail = ''
-                }
-            }
+                } 
+            },
         },
         watch: {
             number() {
@@ -273,6 +280,9 @@ export default {
                     
                 }
 
+                .second-form {
+                    display: none;
+                }
             }
         }
     }

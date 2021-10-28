@@ -32,6 +32,14 @@
                   <span class="warning">Колличество мест ограниченно</span>
               </fieldset>
           </form>
+
+          <form class="second-form" id="ltForm4257283"  action="https://lab.tb7.kz/pl/lite/block-public/process-html?id=1199043895" method="post" data-open-new-window="0"><input type="hidden" name="formParams[setted_offer_id]" ><br>
+            <input type="text" maxlength="60"  placeholder="Введите ваше имя" name="formParams[full_name]" :value="this.name"><br>
+            <input type="text" maxlength="60"  placeholder="Введите ваш телефон" name="formParams[phone]" :value="this.number"><br>
+            <input type="text" maxlength="60"  placeholder="Введите ваш эл. адрес" name="formParams[email]" :value="this.mail" ><br>
+            <button class="popup-btn" type="submit" id="button1740842" style="color: ; background-color: ; border-radius:  !important; " onclick="if(window['btnprs61790360e03a6']){return false;}window['btnprs61790360e03a6']=true;setTimeout(function(){window['btnprs61790360e03a6']=false},6000);return true;">Записаться</button><br>
+          </form>
+          <span id="gccounterImgContainer"></span>
       </div>
     </div>
   </div>
@@ -76,10 +84,13 @@ export default {
           .then((response) => {
               console.log(response);
           })
+          let btn = document.querySelector('.popup-btn')
+          btn.click()
           this.name = ''
           this.number = ''
           this.mail = ''
           this.$store.commit("switch")
+          this.showModal = false
       } else if (this.name.length < 3) {
           this.errorName = true
           this.name = ''
@@ -312,6 +323,9 @@ export default {
                     
                 }
 
+                .second-form {
+                  display: none;
+                }
             }
         }
     }

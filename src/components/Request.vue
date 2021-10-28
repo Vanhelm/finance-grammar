@@ -4,7 +4,7 @@
             <input id="name"  v-model="name" placeholder="Имя Фамилия" name="formParams[full_name]" type="text" tabindex="1" required>
             <input id="phone" v-model="number" :placeholder="phone" name="formParams[phone]" type="tel" tabindex="2" required>
             <input id="mail" v-model="mail" placeholder="Электронная почта" name="formParams[email]" type="email" tabindex="3" required>
-            <button name="submit" @click="double" type="submit" id="contact-submit" data-submit="...Sending" class="btn">Зарегистрироваться</button>
+            <button name="submit"  type="submit" id="contact-submit" data-submit="...Sending" class="btn">Зарегистрироваться</button>
         </form>
             <div class="errors">
                 <span v-if="this.errorName" class="error">*Имя должно быть не меньше 3 букв</span>
@@ -15,12 +15,7 @@
             <input type="text" maxlength="60"  placeholder="Введите ваше имя" name="formParams[full_name]" :value="this.name"><br>
             <input type="text" maxlength="60"  placeholder="Введите ваш телефон" name="formParams[phone]" :value="this.number"><br>
             <input type="text" maxlength="60"  placeholder="Введите ваш эл. адрес" name="formParams[email]" :value="this.mail" ><br>
-                <button class="second-btn" type="submit" id="button1740842" style="color: ; background-color: ; border-radius:  !important; " onclick="if(window['btnprs61790360e03a6']){return false;}window['btnprs61790360e03a6']=true;setTimeout(function(){window['btnprs61790360e03a6']=false},6000);return true;">Записаться</button><br>
-            <!-- <input type="hidden" id="51377661790360d2670" name="_gcinternalformhelper" class="gcinternalform_helper" value="">
-            <input type="hidden" id="51377661790360d2670ref" name="_gcinternalformhelper_ref" class="gcinternalform_helper_ref" value="">
-            <input type="hidden" name="requestTime" value="1635320672">
-            <input type="hidden" name="requestSimpleSign" value="5adb6b8a4a16183e49a1f916e4af2026">
-            <input type="hidden" name="isHtmlWidget" value="1"/> -->
+            <button class="second-btn" type="submit" id="button1740842" style="color: ; background-color: ; border-radius:  !important; " onclick="if(window['btnprs61790360e03a6']){return false;}window['btnprs61790360e03a6']=true;setTimeout(function(){window['btnprs61790360e03a6']=false},6000);return true;">Записаться</button><br>
         </form>
         <span id="gccounterImgContainer"></span>
     </div>
@@ -29,12 +24,6 @@
 <script>
 import axios from 'axios'
     export default {
-        props: {
-            access: {
-                required: true,
-                type: Boolean
-            },
-        },
         data() {
             return {
                 name: '',
@@ -67,11 +56,13 @@ import axios from 'axios'
                     .then((response) => {
                         console.log(response);
                     })
+                    let btn = document.querySelector('.second-btn')
+                    btn.click()
                     this.name = ''
                     this.number = ''
                     this.mail = ''
                     this.$store.commit("switch")
-                } else if (this.name.length < 3) {
+                } else  {
                     this.errorName = true
                     this.errorNum = true
                     this.name = ''
@@ -79,12 +70,6 @@ import axios from 'axios'
                     this.mail = ''
                 } 
             },
-            double() {
-                let btn = document.querySelector('.second-btn')
-                setTimeout(() => {
-                    btn.click()
-                }, 1000);
-            }
         },
         watch: {
             number() {
@@ -169,10 +154,7 @@ import axios from 'axios'
         }
     }
     .second-form {
-        visibility: hidden;
-        // .second-btn {
-        //     visibility: hidden;
-        // }
+        display: none;
     }
 }
 
