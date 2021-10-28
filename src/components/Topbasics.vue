@@ -6,8 +6,7 @@
                     <img src="@/assets/logo.svg" alt="">
                 </div>
                 <div class="text">
-                    <div class="first">Бесплатный онлайн вебинар</div>
-                    <div class="second"><span class="special">20 октября в 20:00 (НУР)</span></div>
+                    <a class="first" href="tel:3883">Бсплатный звонок</a>
                 </div>
             </div>
             <section class="main">
@@ -118,6 +117,9 @@ import Scroll from './Scroll.vue'
                     line-height: 17px;
                 }
                 .first {
+                    color: #58BE00;
+                    text-decoration: none;
+                    cursor: pointer;
                         @media(max-width: 545px) {
                         font-style: normal;
                         font-weight: bold;

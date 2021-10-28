@@ -13,7 +13,7 @@
                 </div>
                 <div class="block__right">
                     <ul class="contact__list">
-                        <li><a class="underline" href="https://api.whatsapp.com/send?phone=77077888787&text=%D0%94%D0%BE%D0%B1%D1%80%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C%2C%20%D1%8F%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D0%B2%D0%BE%D0%B4%D1%83%20%D0%B8%D0%BD%D0%B2%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F">Остались вопросы пишите нам<img src="@/assets/whatsapp.svg" alt=""></a></li>
+                        <li><a class="underline" href="https://wa.me/+77077888787">Остались вопросы пишите нам<img src="@/assets/whatsapp.svg" alt=""></a></li>
                         <li><a href="http://www.instagram.com/chingis.kurmangaliyev/?hl=ru&utm_source=investtender&utm_medium=saite">Инстаграм<img src="@/assets/insta.svg" alt=""></a></li>
                         <li><a href="http://t.me/Tender889?utm_source=investtender&utm_medium=saite">Телеграм канал<img src="@/assets/telegram.svg" alt=""></a></li>
                         <li><a href="https://www.youtube.com/channel/UCxSkfOrrbXysgwswTB0hp1Q">Ютуб канал <img src="@/assets/youtube.svg" alt=""></a></li>
@@ -23,7 +23,7 @@
             <div class="footer__mobile">
                 <h1 class="head__footer">Наши контакты</h1>
                 <ul class="body__footer">
-                    <li><a href="https://api.whatsapp.com/send?phone=77077888787&text=%D0%94%D0%BE%D0%B1%D1%80%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C%2C%20%D1%8F%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D0%B2%D0%BE%D0%B4%D1%83%20%D0%B8%D0%BD%D0%B2%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F"><img src="@/assets/whatsapp.svg" alt="">+7 (000)</a></li>
+                    <li><a href="https://wa.me/+77077888787"><img src="@/assets/whatsapp.svg" alt="">+7 (000)</a></li>
                     <li><a href="http://www.instagram.com/chingis.kurmangaliyev/?hl=ru&utm_source=investtender&utm_medium=saite"><img src="@/assets/insta.svg" alt="">@chingis.kurmangaliev</a></li>
                     <li><a href="http://t.me/Tender889?utm_source=investtender&utm_medium=saite"><img src="@/assets/telegram.svg" alt="">https://t.me/Tender889</a></li>
                     <li><a href="https://www.youtube.com/channel/UCxSkfOrrbXysgwswTB0hp1Q"><img src="@/assets/youtube.svg" alt="">https://t.me/Tender889</a></li>
