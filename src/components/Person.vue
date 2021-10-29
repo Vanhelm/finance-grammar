@@ -83,6 +83,7 @@
             @media(max-width: 545px) {
                 position: absolute;
                 bottom: 65px;
+                margin-bottom: 55px;
             }
             .header__block {
                 display: flex;
