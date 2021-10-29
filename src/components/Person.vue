@@ -47,20 +47,20 @@
         padding-top: 80px;
         z-index: 9991;
     }
-    @media (max-width: 325) {
+    @media (max-width: 325px) {
         height: 540px;
     }
     .person {
-    // max-width: 1440px;
-    width: 100%;
-    height: 402px;
-    margin: 0 auto;
-    background-color: #201A3D;
-    @media(max-width: 545px) {
-            width: 100%;
-            height: 100%;
-            z-index: 9991;
-    }
+      max-width: 1440px;
+      width: 100%;
+      height: 402px;
+      margin: 0 auto;
+      background-color: #201A3D;
+      @media(max-width: 545px) {
+        width: 100%;
+        height: 100%;
+        z-index: 9991;
+      }
     .person__container {
         display: flex;
         flex-direction: row;
@@ -78,10 +78,10 @@
                 height: 100%;
             }
             img {
-                position: relative;
-                bottom: 362px;
-                left: -135px;
-                width: 68%;
+              position: relative;
+              bottom: 310px;
+              left: -135 px;
+              width: 68%;
                 @media(max-width: 545px) {
                     width: 90%;
                     bottom: 220px;
@@ -91,9 +91,9 @@
         }
         .text__block {
             @media(max-width: 545px) {
-                position: absolute;
-                bottom: 10px;
-                margin-bottom: 55px;
+              position: relative;
+              bottom: 300px;
+              margin-bottom: 80px;
             }
             .header__block {
                 display: flex;
@@ -126,6 +126,9 @@
             .body__block {
                 margin-top: 50px;
                 ul {
+                  @media(max-width: 545px) {
+                    width: 100%;
+                  }
                     li {
                         position: relative;
                         left: 10px;

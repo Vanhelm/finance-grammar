@@ -97,6 +97,9 @@ import Scroll from './Scroll.vue'
 <style lang="scss" scoped>
 .basics {
     background-color: #201A3D;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
         @media(max-width: 545px) {
             width: 100%;
         }

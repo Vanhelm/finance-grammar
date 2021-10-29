@@ -35,7 +35,7 @@
 
 <script>
     export default {
-        
+
     }
 </script>
 
@@ -44,7 +44,12 @@
     z-index: 9991;
     position: relative;
     background-color: #201A3D;
+    margin: 0 auto;
+    max-width: 1440px;
     width: 100%;
+    @media(max-width: 545px) {
+      width: 100%;
+    }
     .footer {
         max-width: 1440px;
         width: 100%;

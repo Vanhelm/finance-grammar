@@ -47,7 +47,7 @@
                     this.user.phone = this.number
                     this.user.email = this.mail
                     localStorage.user = JSON.stringify(this.user)
-                    
+
 
                     // axios.post(
                     //     '',
@@ -68,7 +68,7 @@
                     this.name = ''
                     this.number = ''
                     this.mail = ''
-                } 
+                }
             },
         },
         watch: {
@@ -92,10 +92,10 @@
 .form-wrapper {
     display: flex;
     flex-direction: column;
-    // max-width: 1440px;
+    max-width: 1440px;
     width: 100%;
     background-color: #EEEEEE;
-    margin: 0 auto; 
+    margin: 0 auto;
     @media(max-width: 545px) {
         display: none;
         width: 100%;

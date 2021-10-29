@@ -105,9 +105,10 @@
     width: 100%;
     margin: 0 auto;
     @media(max-width: 545px) {
+      width: 100%;
         margin-top: 90px;
     }
-    .promo { 
+    .promo {
         position: relative;
         margin-bottom: 100px;
         @media(max-width: 545px) {
@@ -234,7 +235,7 @@
     }
     .videos {
         @media(max-width: 545px) {
-            
+
         }
         .container {
             margin: 44px;
@@ -329,7 +330,7 @@
                                 font-weight: bold;
                                 font-size: 17px;
                             }
-                        }   
+                        }
                     }
                 }
                 .text {
@@ -370,7 +371,7 @@
                                 @media(max-width: 545px) {
                                     font-size: 20px;
                                     line-height: 24px
-                                }  
+                                }
                             }
                         }
                     }
@@ -391,7 +392,7 @@
                     }
                 }
             }
-            
+
         }
     }
 }

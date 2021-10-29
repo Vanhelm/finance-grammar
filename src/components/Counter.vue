@@ -100,7 +100,8 @@
 .wrapper__timer {
     margin-top: 20px;
     @media (max-width: 545px) {
-        padding: 20px;
+      margin-top: 0;
+      padding: 40px;
     }
     .timer {
         display: flex;
