@@ -68,7 +68,6 @@
                     this.displayHours = this.formarNum(hours);
                     this.displayMinutes = this.formarNum(minutes);
                     this.displaySeconds = this.formarNum(seconds);
-                    this.displaySeconds--
                     this.load = true
                 }, 1000);
             }

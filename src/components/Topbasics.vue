@@ -6,7 +6,7 @@
                     <img src="@/assets/logo.svg" alt="">
                 </div>
                 <div class="text">
-                    <a class="first" href="tel:3883">3883</a>
+                    <a class="first" href="tel:3883"><img src="@/assets/call.svg" alt=""> 3883</a>
                 </div>
             </nav>
             <section class="main">
@@ -126,6 +126,10 @@ import Scroll from './Scroll.vue'
                         font-weight: bold;
                         font-size: 14px;
                         line-height: 17px;
+                    }
+                    img {
+                        position: relative;
+                        top: 2px;
                     }
                 }
                 .second {
