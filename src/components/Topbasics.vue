@@ -1,14 +1,14 @@
 <template>
-    <div class="basics">
+    <header class="basics">
         <div class="container">
-            <div class="topbar">
+            <nav class="topbar">
                 <div class="logo">
                     <img src="@/assets/logo.svg" alt="">
                 </div>
                 <div class="text">
                     <a class="first" href="tel:3883">3883</a>
                 </div>
-            </div>
+            </nav>
             <section class="main">
                 <div class="block-text">
                     <h1><span class="white-h1">Основы</span><br>
@@ -16,7 +16,7 @@
                         грамотности
                     </h1>
                     <p>
-                        Вы узнаете, как не стать жертвой денег и управлять ими так, <br> чтобы они не имели над вами власть. 
+                        Вы узнаете, как не стать жертвой денег и управлять ими так, <br> чтобы они не имели над вами власти. 
                         <br><br>
                         Освоите выгодный способ инвестирования в госзакупки, <br>
                         и поймете, почему Тендерная Биржа - лучший партнер для получения прибыли.
@@ -25,7 +25,7 @@
                 </div>
                 <div class="block-video">
                     <div class="wrapper">
-                        <iframe border-radius="10px" src="https://www.youtube.com/embed/Om2ZrzSVZC4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe border-radius="10px" src="https://www.youtube.com/embed/Om2ZrzSVZC4?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <div class="text-video">
                             <span class="block">Запишись на вебинар и получи мини курс в подарок</span>
                             <!-- <a href="#" class="block">Смотреть больше &#8594;</a> -->
@@ -38,7 +38,7 @@
             <popup class="mobile"/>
             <!-- <span class="people">{{this.counter}} челевек уже посмотрели мини-курс</span> -->
         </div>
-    </div>
+    </header>
 </template>
 
 <script>
@@ -71,6 +71,9 @@ import Scroll from './Scroll.vue'
 <style lang="scss" scoped>
 .basics {
     background-color: #201A3D;
+        @media(max-width: 545px) {
+            width: 100%;
+        }
     .container {
         max-width: 1440px;
         width: 100%;
@@ -157,6 +160,7 @@ import Scroll from './Scroll.vue'
             padding: 41px;
             justify-content: space-between;
             @media(max-width: 545px) {
+                margin-top: 0;
                 width: 100%;
                 flex-direction: column;
                 padding: 20px;

@@ -36,6 +36,9 @@ import Popup from './Popup.vue'
     width: 100%;
     margin: 0 auto;
     background-color: #fff;
+    @media(max-width: 545px) {
+        width: 100%;
+    }
     .present {
         display: flex;
         flex-direction: row;
@@ -45,6 +48,7 @@ import Popup from './Popup.vue'
         // height: 500px;
         @media(max-width: 545px) {
             flex-direction: column;
+            width: 90%;
             margin: 20px;
         }
         .left-block {

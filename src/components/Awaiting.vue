@@ -117,10 +117,9 @@ import Popup from './Popup.vue'
                             height: 100%;
                         }
                         img {
+                            position: relative;
+                            left: 25px;
                             width: 90%;
-                            @media(max-width: 545px) {
-                                width: 90%;
-                            }
                         }
                     }
                     .text__wrapper {
@@ -144,7 +143,7 @@ import Popup from './Popup.vue'
                         position: relative;
                         top: -80px;
                         img {
-                            width: 100%;
+                            width: 95%;
                         }
                     }
                     .text__wrapper {

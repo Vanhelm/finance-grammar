@@ -3,7 +3,7 @@
         <div class="promo">
             <div class="container">
                 <div class="video-block">
-                    <iframe border-radius="10px" src="https://www.youtube.com/embed/Om2ZrzSVZC4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe border-radius="10px" src="https://www.youtube.com/embed/Om2ZrzSVZC4?color=white" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="text-block">
                     <h2>

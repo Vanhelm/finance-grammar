@@ -26,7 +26,14 @@
 
 <script>
     export default {
-        
+        methods: {
+            wrapper() {
+                
+            }
+        },
+        mounted() {
+            this.wrapper()
+        }
     }
 </script>
 
@@ -36,9 +43,12 @@
     background-color: #FFFFFF;
     position: relative;
     @media(max-width: 545px) {
-            height: 600px;
-            padding-top: 80px;
-            z-index: 9991;
+        height: 640px;
+        padding-top: 80px;
+        z-index: 9991;
+    }
+    @media (max-width: 325) {
+        height: 540px;
     }
     .person {
     // max-width: 1440px;
@@ -82,7 +92,7 @@
         .text__block {
             @media(max-width: 545px) {
                 position: absolute;
-                bottom: 65px;
+                bottom: 10px;
                 margin-bottom: 55px;
             }
             .header__block {

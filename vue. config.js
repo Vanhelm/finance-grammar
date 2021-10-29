@@ -1,5 +1,10 @@
 module.exports = {
-    devServer: {
-    proxy: 'https://lab.tb7.kz/',
+    chainWebpack: config => {
+        config
+            .plugin('html')
+            .tap(args => {
+                args[0].title = "My Vue App";
+                return args;
+            })
     }
 }

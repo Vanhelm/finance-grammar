@@ -7,7 +7,7 @@
                 </video>
             </div>
             <div class="form__block">
-                <div class="container">  
+                <div class="container" id="contact-wrapper">  
                     <form id="contact" @submit.prevent="submitForm" action="" method="post">
                         <h3>{{this.$store.state.access ? 'Поздравляем, вы зарегистрированы' : 'Войди уверенно в мир надежных инвестиций!'}}</h3>
                         <h4>
@@ -40,9 +40,9 @@
 
 <script>
 // import axios from 'axios'
-import Counter from './Counter.vue'
+// import Counter from './Counter.vue'
 export default {
-  components: { Counter },
+  components: {  },
         data() {
             return {
                 name: '',

@@ -3,9 +3,9 @@
 <div id="app" class="modal-vue">
   
   <!-- button show -->
-  <div class="btn__wrapper">
-    <button class="btn" @click="showModal = true">Зарегистрироваться</button>
-  </div>
+  <a v-smooth-scroll href="#contact-wrapper" class="btn__wrapper">
+    <button class="btn" href="#contact-wrapper">Зарегистрироваться</button>
+  </a>
   
   <!-- overlay -->
   <div class="overlay" v-if="showModal" @click="showModal = false"></div>
@@ -127,7 +127,7 @@ export default {
     @media(max-width: 545px) {
         display: block;
         position: fixed;
-        left: 0;
+        left: -8px;
         width: 100%;
         padding: 20px;
         z-index: 999;
