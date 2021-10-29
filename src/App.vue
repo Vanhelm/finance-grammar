@@ -23,18 +23,18 @@ import Footerapp from './components/Footerapp.vue';
 export default {
   data() {
     return {
-      
+
     }
   },
   // metaInfo() {
-  //   return { 
+  //   return {
   //           title: "Epiloge - Build your network in your field of interest",
   //           meta: [
   //               { name: 'description', content:  'Epiloge is about connecting in your field of interest. Our vision is to help people share their knowledge, work, projects, papers and ideas and build their network through what they do rather where they live, study or work.'},
   //               { property: 'og:title', content: "Epiloge - Build your network in your field of interest"},
   //               { property: 'og:site_name', content: 'Epiloge'},
-  //               {property: 'og:type', content: 'website'},    
-  //               {name: 'robots', content: 'index,follow'} 
+  //               {property: 'og:type', content: 'website'},
+  //               {name: 'robots', content: 'index,follow'}
   //           ]
   //       }
   // },
@@ -59,10 +59,5 @@ export default {
   padding: 0;
   box-sizing: border-box;
   font-family: 'Exo 2', sans-serif;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  user-select: none;
 }
 </style>

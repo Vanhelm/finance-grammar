@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@chenfengyuan/vue-countdown": "^2.0.0-rc",
+    "@techassi/vue-youtube-iframe": "^1.0.6",
     "animate.css": "^4.1.1",
     "axios": "^0.23.0",
     "core-js": "^3.6.5",

@@ -28,7 +28,7 @@
     export default {
         methods: {
             wrapper() {
-                
+
             }
         },
         mounted() {
@@ -124,7 +124,7 @@
                 }
             }
             .body__block {
-                margin-top: 81px;
+                margin-top: 50px;
                 ul {
                     li {
                         position: relative;

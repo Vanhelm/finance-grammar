@@ -9,7 +9,7 @@
                 <h4 class="watch"><Counter/></h4>
             </div>
             <div class="form__block">
-                <div class="container" id="contact-wrapper">  
+                <div class="container" id="contact-wrapper">
                     <form id="contact" @submit.prevent="submitForm" action="" method="post">
                         <h3>{{this.$store.state.access ? 'Поздравляем, вы зарегистрированы' : 'Войди уверенно в мир надежных инвестиций!'}}</h3>
                         <div v-if="this.$store.state.access" class="congratulations">
@@ -22,7 +22,7 @@
                             <span v-if="this.errorNum" class="error">*введите корректный телефон (пример: +7 (000)000-0000)</span>
                             <input v-model="mail" type="email" placeholder="Электронная почта" required tabindex="3">
                             <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Зарегистрироваться</button>
-                            <span class="warning">Колличество мест ограниченно</span>
+                            <span class="warning">Количество мест ограниченно</span>
                         </fieldset>
                     </form>
                     <form class="second-form" id="ltForm4257283"  action="https://lab.tb7.kz/pl/lite/block-public/process-html?id=1199043895" method="post" data-open-new-window="0"><input type="hidden" name="formParams[setted_offer_id]" ><br>
@@ -66,7 +66,7 @@ export default {
                     this.user.phone = this.number
                     this.user.email = this.mail
                     localStorage.user = JSON.stringify(this.user)
-                    
+
 
                     // axios.post(
                     //     'https://lab.tb7.kz/pl/lite/block-public/process-html?id=1199043895',
@@ -87,7 +87,7 @@ export default {
                     this.name = ''
                     this.number = ''
                     this.mail = ''
-                } 
+                }
             },
         },
         watch: {
@@ -165,7 +165,7 @@ export default {
                 width: 100%;
                 margin: 0 auto;
                 position: relative;
-                
+
                 #contact {
                     background: #EEEEEE;
                     border-radius: 20px;
@@ -294,7 +294,7 @@ export default {
                             }
                         }
                     }
-                    
+
                 }
 
                 .second-form {

@@ -16,7 +16,7 @@
                         грамотности
                     </h1>
                     <p>
-                        Вы узнаете, как не стать жертвой денег и управлять ими так, <br> чтобы они не имели над вами власти. 
+                        Вы узнаете, как не стать жертвой денег и управлять ими так, <br> чтобы они не имели над вами власти.
                         <br><br>
                         Освоите выгодный способ инвестирования в госзакупки, <br>
                         и поймете, почему Тендерная Биржа - лучший партнер для получения прибыли.
@@ -24,9 +24,10 @@
                     <popup class="popup" @click="flying"/>
                 </div>
                 <div class="block-video">
-                    <div class="wrapper hytPlayerWrap">
-                        <iframe border-radius="10px" src="https://www.youtube.com/embed/Om2ZrzSVZC4?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <div class="text-video">
+                    <div id="playerWrap" class="wrapper">
+                        <iframe border-radius="10px" src="https://www.youtube.com/embed/Om2ZrzSVZC4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<!--                      <youtube-iframe :video-id="Om2ZrzSVZC4"></youtube-iframe>-->
+                      <div class="text-video">
                             <span class="block">Запишись на вебинар и получи мини курс в подарок</span>
                             <!-- <a href="#" class="block">Смотреть больше &#8594;</a> -->
                         </div>
@@ -44,17 +45,17 @@
 <script>
 import Popup from './Popup.vue'
 import Scroll from './Scroll.vue'
+
     export default {
         data() {
             return {
-                fly: null,
+                title: 'Events',
                 counter: '',
-                videoId: 'qtRIPb0ufgU',
+                videoId: 'Om2ZrzSVZC4',
             }
         },
         components: {
-            Popup,
-                Scroll
+            Popup, Scroll,
         },
         methods: {
             currentPeople() {
@@ -65,10 +66,30 @@ import Scroll from './Scroll.vue'
                 let number = str.substring(5,8)
                 console.log(number);
                 this.counter = number
-            }
+            },
+          ready (event) {
+            this.player = event.target
+          },
+          playing () {
+            // The player is playing a video.
+          },
+          change () {
+            // when you change the value, the player will also change.
+            // If you would like to change `playerVars`, please change it before you change `videoId`.
+            // If `playerVars.autoplay` is 1, `loadVideoById` will be called.
+            // If `playerVars.autoplay` is 0, `cueVideoById` will be called.
+            this.videoId = 'another video id'
+          },
+          stop () {
+            this.player.stopVideo()
+          },
+          pause () {
+            this.player.pauseVideo()
+          }
         },
         mounted() {
-            this.currentPeople()
+            this.currentPeople();
+
         },
     }
 </script>
@@ -154,7 +175,7 @@ import Scroll from './Scroll.vue'
                         height: 20px;
                         text-align: center;
                     }
-                    .special {      
+                    .special {
                         color: #000000;
                         padding-bottom: 2px;
 
@@ -255,7 +276,7 @@ import Scroll from './Scroll.vue'
                         }
                         .block {
                             padding-top: 8px;
-                            color: #58BE00; 
+                            color: #58BE00;
                         }
                         a {
                             @media(max-width: 545px) {
