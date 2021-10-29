@@ -13,7 +13,7 @@
                 </div>
                 <div class="block__right">
                     <ul class="contact__list">
-                        <li><a class="underline" href="https://wa.me/+77077888787">Остались вопросы пишите нам<img src="@/assets/whatsapp.svg" alt=""></a></li>
+                        <li><a class="underline" href="https://wa.me/+77077888787">Остались вопросы +77077888787<img src="@/assets/whatsapp.svg" alt=""></a></li>
                         <li><a href="http://www.instagram.com/chingis.kurmangaliyev/?hl=ru&utm_source=investtender&utm_medium=saite">Инстаграм<img src="@/assets/insta.svg" alt=""></a></li>
                         <li><a href="http://t.me/Tender889?utm_source=investtender&utm_medium=saite">Телеграм канал<img src="@/assets/telegram.svg" alt=""></a></li>
                         <li><a href="https://www.youtube.com/channel/UCxSkfOrrbXysgwswTB0hp1Q">Ютуб канал <img src="@/assets/youtube.svg" alt=""></a></li>
@@ -23,10 +23,10 @@
             <div class="footer__mobile">
                 <h1 class="head__footer">Наши контакты</h1>
                 <ul class="body__footer">
-                    <li><a href="https://wa.me/+77077888787"><img src="@/assets/whatsapp.svg" alt="">+7 (000)</a></li>
+                    <li><a href="https://wa.me/+77077888787"><img src="@/assets/whatsapp.svg" alt="">+77077888787</a></li>
                     <li><a href="http://www.instagram.com/chingis.kurmangaliyev/?hl=ru&utm_source=investtender&utm_medium=saite"><img src="@/assets/insta.svg" alt="">@chingis.kurmangaliev</a></li>
                     <li><a href="http://t.me/Tender889?utm_source=investtender&utm_medium=saite"><img src="@/assets/telegram.svg" alt="">https://t.me/Tender889</a></li>
-                    <li><a href="https://www.youtube.com/channel/UCxSkfOrrbXysgwswTB0hp1Q"><img src="@/assets/youtube.svg" alt="">https://t.me/Tender889</a></li>
+                    <li><a href="https://www.youtube.com/channel/UCxSkfOrrbXysgwswTB0hp1Q"><img src="@/assets/youtube.svg" alt="">YouTube канал</a></li>
                 </ul>
             </div>
         </div>

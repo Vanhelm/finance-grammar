@@ -1,18 +1,17 @@
 <template>
     <div class="wrapper__time">
+        <Counter class="mobile-timer"/>
         <div class="time">
             <div class="img__block">
                 <video class="gif" autoplay loop muted inline>
                     <source src="@/assets/gtime.webm" type="video/webm">
                 </video>
+                <h4 class="watch"><Counter/></h4>
             </div>
             <div class="form__block">
                 <div class="container" id="contact-wrapper">  
                     <form id="contact" @submit.prevent="submitForm" action="" method="post">
                         <h3>{{this.$store.state.access ? 'Поздравляем, вы зарегистрированы' : 'Войди уверенно в мир надежных инвестиций!'}}</h3>
-                        <h4>
-                            <Counter/>
-                        </h4>
                         <div v-if="this.$store.state.access" class="congratulations">
                             <h4>Все видео уроки теперь доступны</h4>
                         </div>
@@ -40,9 +39,11 @@
 
 <script>
 // import axios from 'axios'
-// import Counter from './Counter.vue'
+import Counter from './Counter.vue'
 export default {
-  components: {  },
+  components: {
+      Counter
+  },
         data() {
             return {
                 name: '',
@@ -110,13 +111,19 @@ export default {
 .wrapper__time {
     max-width: 1440px;
     width: 100%;
-    margin: 59px auto;
+    margin: 0 auto;
+    margin-bottom: 60px;
     background-color: #fff;
     @media(max-width: 545px) {
         margin: 0;
         width: 100%;
         position: relative;
         z-index: 9991;
+    }
+    .mobile-timer {
+        @media (min-width: 545px) {
+            display: none;
+        }
     }
     .time {
         display: flex;
@@ -131,20 +138,30 @@ export default {
             width: 100%;
         }
         .img__block {
-            width: 30%;
+            width: 70%;
+            margin-right: 30px;
             @media(max-width: 545px) {
                 display: flex;
+                margin-right: 0;
                 justify-content: center;
                 z-index: 90;
             }
             .gif {
+                margin: 0 auto;
+                display: flex;
+                justify-content: center;
                 border-radius: 20px;
-                width: 80%;
+                width: 60%;
+            }
+            .watch {
+                @media(max-width: 545px) {
+                    display: none;
+                }
             }
         }
         .form__block {
             .container {
-                max-width: 400px;
+                max-width: 600px;
                 width: 100%;
                 margin: 0 auto;
                 position: relative;
