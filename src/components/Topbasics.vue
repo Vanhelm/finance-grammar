@@ -6,7 +6,7 @@
                     <img src="@/assets/logo.svg" alt="">
                 </div>
                 <div class="text">
-                    <a class="first" href="tel:3883">Бсплатный звонок</a>
+                    <a class="first" href="tel:3883">3883</a>
                 </div>
             </div>
             <section class="main">
@@ -25,7 +25,7 @@
                 </div>
                 <div class="block-video">
                     <div class="wrapper">
-                        <iframe class="frame" src="https://www.youtube.com/embed/qtRIPb0ufgU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; picture-in-picture" allowfullscreen></iframe>
+                        <iframe border-radius="10px" src="https://www.youtube.com/embed/Om2ZrzSVZC4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <div class="text-video">
                             <span class="block">Запишись на вебинар и получи мини курс в подарок</span>
                             <!-- <a href="#" class="block">Смотреть больше &#8594;</a> -->
@@ -88,7 +88,7 @@ import Scroll from './Scroll.vue'
             height: 114px;
             padding: 41px;
             @media(max-width: 545px) {
-                flex-direction: column;
+                flex-direction: row;
                 padding: 20px;
             }
             .logo {
@@ -109,8 +109,6 @@ import Scroll from './Scroll.vue'
                 font-size: 18px;
                 line-height: 24px;
                 @media(max-width: 545px) {
-                    width: 100%;
-                    margin-top: 39px;
                     font-style: normal;
                     font-weight: bold;
                     font-size: 14px;
@@ -215,7 +213,7 @@ import Scroll from './Scroll.vue'
                         width: 100%;
                         height: 100%;
                     }
-                    .frame {
+                    iframe {
                         border: 2px solid #58BE00;
                         box-sizing: border-box;
                         border-radius: 10px;
@@ -236,6 +234,12 @@ import Scroll from './Scroll.vue'
                         font-weight: bold;
                         font-size: 18px;
                         line-height: 22px;
+                        @media (max-width: 545px) {
+                            font-style: normal;
+                            font-weight: bold;
+                            font-size: 14px;
+                            line-height: 17px;
+                        }
                         .block {
                             padding-top: 8px;
                             color: #58BE00; 

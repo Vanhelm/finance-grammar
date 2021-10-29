@@ -47,5 +47,10 @@ export default {
   padding: 0;
   box-sizing: border-box;
   font-family: 'Exo 2', sans-serif;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 </style>

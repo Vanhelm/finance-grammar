@@ -3,7 +3,7 @@
         <div class="promo">
             <div class="container">
                 <div class="video-block">
-                    <iframe class="frame" border-radius="10px" src="https://www.youtube.com/embed/qtRIPb0ufgU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe border-radius="10px" src="https://www.youtube.com/embed/Om2ZrzSVZC4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="text-block">
                     <h2>
@@ -130,17 +130,23 @@
                 background: none;
             }
             .video-block {
-                width: 657px;
-                height: 384px;
+                width: 680px;
+                height: 385px;
                 @media(max-width: 545px) {
                     width: 100%;
                     margin: 0 auto;
                     padding: 20px;
                 }
                 iframe {
+                    border: 2px solid #58BE00;
+                    box-sizing: border-box;
+                    border-radius: 10px;
                     width: 100%;
                     height: 100%;
-                    border-radius: 20px;
+                    @media(max-width: 545px) {
+                        width: 100%;
+                        height: 100%;
+                    }
                 }
             }
             .text-block {
