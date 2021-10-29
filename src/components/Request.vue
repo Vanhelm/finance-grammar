@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
     export default {
         data() {
             return {
@@ -49,13 +49,13 @@ import axios from 'axios'
                     localStorage.user = JSON.stringify(this.user)
                     
 
-                    axios.post(
-                        'https://b24-nqeaci.bitrix24.kz/rest/9/i0rn7kme0y9pj731/profile.json',
-                        {name: this.name, phone: this.number, email: this.mail}
-                    )
-                    .then((response) => {
-                        console.log(response);
-                    })
+                    // axios.post(
+                    //     '',
+                    //     {name: this.name, phone: this.number, email: this.mail}
+                    // )
+                    // .then((response) => {
+                    //     console.log(response);
+                    // })
                     // let btn = document.querySelector('.second-btn')
                     // btn.click()
                     this.name = ''

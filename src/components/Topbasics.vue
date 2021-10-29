@@ -36,7 +36,7 @@
             </section>
             <scroll/>
             <popup class="mobile"/>
-            <span class="people">{{this.counter}} челевек уже посмотрели мини-курс</span>
+            <!-- <span class="people">{{this.counter}} челевек уже посмотрели мини-курс</span> -->
         </div>
     </div>
 </template>

@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 export default {
   name: 'Button.vue',
   data() {
@@ -77,13 +77,13 @@ export default {
           localStorage.user = JSON.stringify(this.user)
           
 
-          axios.post(
-              'https://lab.tb7.kz/pl/lite/block-public/process-html?id=1199043895',
-              {name: this.name, phone: this.number, email: this.mail}
-          )
-          .then((response) => {
-              console.log(response);
-          })
+          // axios.post(
+          //     'https://lab.tb7.kz/pl/lite/block-public/process-html?id=1199043895',
+          //     {name: this.name, phone: this.number, email: this.mail}
+          // )
+          // .then((response) => {
+          //     console.log(response);
+          // })
           let btn = document.querySelector('.popup-btn')
           btn.click()
           this.name = ''
