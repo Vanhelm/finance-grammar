@@ -151,7 +151,7 @@ export default {
                 display: flex;
                 justify-content: center;
                 border-radius: 20px;
-                width: 60%;
+                width: 65%;
             }
             .watch {
                 @media(max-width: 545px) {

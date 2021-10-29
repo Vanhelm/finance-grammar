@@ -24,8 +24,8 @@
                     <popup class="popup" @click="flying"/>
                 </div>
                 <div class="block-video">
-                    <div class="wrapper">
-                        <iframe border-radius="10px" src="https://www.youtube.com/embed/Om2ZrzSVZC4?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="wrapper hytPlayerWrap">
+                        <iframe border-radius="10px" src="https://www.youtube.com/embed/Om2ZrzSVZC4?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <div class="text-video">
                             <span class="block">Запишись на вебинар и получи мини курс в подарок</span>
                             <!-- <a href="#" class="block">Смотреть больше &#8594;</a> -->
@@ -56,14 +56,19 @@ import Scroll from './Scroll.vue'
             Popup,
                 Scroll
         },
+        methods: {
+            currentPeople() {
+                let now = new Date();
+                let allTime = now.getTime();
+                console.log(allTime);
+                let str = allTime.toString();
+                let number = str.substring(5,8)
+                console.log(number);
+                this.counter = number
+            }
+        },
         mounted() {
-            let now = new Date();
-            let allTime = now.getTime();
-            console.log(allTime);
-            let str = allTime.toString();
-            let number = str.substring(5,8)
-            console.log(number);
-            this.counter = number
+            this.currentPeople()
         },
     }
 </script>
