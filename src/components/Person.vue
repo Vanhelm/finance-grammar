@@ -14,7 +14,7 @@
                         <ul>
                             <li><img src="@/assets/mark.svg" alt=""> 37 лет</li>
                             <li><img src="@/assets/mark.svg" alt="">Эксперт №1 в тендерном бизнесе Казахстана</li>
-                            <li><img src="@/assets/mark.svg" alt="">Основатель компании “Тендерная Биржа”</li>
+                            <li><img src="@/assets/mark.svg" alt="">Основатель компании «Тендерная Биржа»</li>
                             <li><img src="@/assets/mark.svg" alt="">В тендерном бизнесе с 2004 года</li>
                         </ul>
                     </div>

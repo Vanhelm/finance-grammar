@@ -52,7 +52,7 @@
                         </video>
                       </vue-plyr>
                       <div class="text-video">
-                            <span class="block">Запишись на вебинар и получи мини курс в подарок</span>
+                            <span class="block">Запишись на вебинар и получи мини-курс в подарок</span>
                             <!-- <a href="#" class="block">Смотреть больше &#8594;</a> -->
                         </div>
                     </div>

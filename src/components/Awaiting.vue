@@ -22,7 +22,7 @@
                             <img src="@/assets/second.png" alt="">
                         </div>
                         <div class="text__wrapper">
-                            <p>Расскажем как правильно <br>
+                            <p>Расскажем, как правильно <br>
                             выбирать инвестиционный проект</p>
                         </div>
                         <div class="background"></div>
