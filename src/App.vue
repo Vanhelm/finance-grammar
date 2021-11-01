@@ -60,4 +60,7 @@ export default {
   box-sizing: border-box;
   font-family: 'Exo 2', sans-serif;
 }
+.plyr--video {
+  border-radius: 20px;
+}
 </style>

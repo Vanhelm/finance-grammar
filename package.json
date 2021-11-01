@@ -17,6 +17,7 @@
     "vue-axios": "^3.3.7",
     "vue-imask": "^6.2.2",
     "vue-meta": "^2.4.0",
+    "vue-plyr": "^7.0.0",
     "vue-router": "^4.0.0-0",
     "vue-youtube-iframe-api": "^0.1.2",
     "vue3-smooth-scroll": "^0.8.1",

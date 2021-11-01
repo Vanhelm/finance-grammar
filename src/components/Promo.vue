@@ -3,7 +3,32 @@
         <div class="promo">
             <div class="container">
                 <div class="video-block">
-                    <iframe border-radius="10px" src="https://www.youtube.com/embed/Om2ZrzSVZC4?color=white" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <vue-plyr :options="options">
+                    <video
+                        controls
+                        crossorigin
+                        playsinline
+                        data-poster="poster.jpg"
+                    >
+                      <source
+                          size="720"
+                          src="@/assets/promo.mp4"
+                          type="video/mp4"
+                      />
+                      <source
+                          size="1080"
+                          src="@/assets/promo.mp4"
+                          type="video/mp4"
+                      />
+                      <track
+                          default
+                          kind="captions"
+                          label="English captions"
+                          src="/path/to/english.vtt"
+                          srclang="en"
+                      />
+                    </video>
+                  </vue-plyr>
                 </div>
                 <div class="text-block">
                     <h2>
