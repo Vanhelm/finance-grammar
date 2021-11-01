@@ -35,7 +35,7 @@
                         промо ролик мини-курса <br>
                         <span class="green" >«основы финансовой <br> грамотности»</span>
                     </h2>
-                    <!-- <button @click="showVideos = !showVideos" class="course-btn">Смотреть курс</button> -->
+                    <button @click="showVideos = !showVideos" class="course-btn">Смотреть курс</button>
                 </div>
             </div>
             <img src="@/assets/rocket1.png" alt="">
