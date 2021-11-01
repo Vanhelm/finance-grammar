@@ -61,6 +61,8 @@ export default {
   font-family: 'Exo 2', sans-serif;
 }
 .plyr--video {
-  border-radius: 20px;
+  border: 2px solid #58BE00;
+  box-sizing: border-box;
+  border-radius: 10px;
 }
 </style>
