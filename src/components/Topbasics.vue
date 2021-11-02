@@ -91,7 +91,7 @@ import Scroll from './Scroll.vue'
                 this.counter = number
             },
             select() {
-                this.$refs.plyr.player.togglePlay()
+                // this.$refs.plyr.player.togglePlay()
             }
         },
         mounted() {
