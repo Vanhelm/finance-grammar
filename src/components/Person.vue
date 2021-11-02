@@ -125,6 +125,9 @@
             }
             .body__block {
                 margin-top: 50px;
+                @media(max-width: 545px) {
+                    margin-top: 20px;
+                }
                 ul {
                   @media(max-width: 545px) {
                     width: 100%;
