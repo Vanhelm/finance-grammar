@@ -60,7 +60,7 @@
             </section>
             <scroll/>
             <popup class="mobile"/>
-            <!-- <span class="people">{{this.counter}} челевек уже посмотрели мини-курс</span> -->
+             <span class="people">{{this.counter}} челевек уже посмотрели мини-курс</span>
         </div>
     </header>
 </template>
@@ -86,7 +86,7 @@ import Scroll from './Scroll.vue'
                 let allTime = now.getTime();
                 console.log(allTime);
                 let str = allTime.toString();
-                let number = str.substring(5,8)
+                let number = str.substring(4,8) - 2000
                 console.log(number);
                 this.counter = number
             },

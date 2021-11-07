@@ -29,7 +29,7 @@
                         <input type="text" maxlength="60"  placeholder="Введите ваше имя" name="formParams[full_name]" :value="this.name"><br>
                         <input type="text" maxlength="60"  placeholder="Введите ваш телефон" name="formParams[phone]" :value="this.number"><br>
                         <input type="text" maxlength="60"  placeholder="Введите ваш эл. адрес" name="formParams[email]" :value="this.mail" ><br>
-                        <button class="last-btn" type="submit" id="button1740842" style="color: ; background-color: ; border-radius:  !important; " onclick="if(window['btnprs61790360e03a6']){return false;}window['btnprs61790360e03a6']=true;setTimeout(function(){window['btnprs61790360e03a6']=false},6000);return true;">Записаться</button><br>
+                        <button class="last-btn" type="submit" id="button1740842" onclick="if(window['btnprs61790360e03a6']){return false;}window['btnprs61790360e03a6']=true;setTimeout(function(){window['btnprs61790360e03a6']=false},2000);return true;">Записаться</button><br>
                     </form>
                 </div>
             </div>
@@ -276,7 +276,6 @@ export default {
                             }
                         }
                         .warning {
-                            font-family: Exo 2;
                             font-style: normal;
                             font-weight: bold;
                             font-size: 18px;
