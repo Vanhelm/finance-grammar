@@ -61,7 +61,7 @@ export default {
         },
         methods: {
             submitForm()  {
-                if (this.number.length == this.phone.length && this.name.length > 3) {
+                if (this.number.length == this.phone.length && this.name.length >= 2) {
                     this.user.name = this.name
                     this.user.phone = this.number
                     this.user.email = this.mail

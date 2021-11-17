@@ -86,7 +86,7 @@ import Scroll from './Scroll.vue'
                 let allTime = now.getTime();
                 console.log(allTime);
                 let str = allTime.toString();
-                let number = str.substring(4,8) - 2000
+                let number = str.substring(3,7) - 2000
                 console.log(number);
                 this.counter = number
             },
