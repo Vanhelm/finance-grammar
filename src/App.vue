@@ -69,4 +69,8 @@ export default {
   box-sizing: border-box;
   border-radius: 10px;
 }
+.flying {
+  animation: fadeOutTopRight;
+  animation-duration: 2s;
+}
 </style>

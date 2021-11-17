@@ -2,38 +2,38 @@
     <div class="promo__wrapper">
         <div class="promo">
             <div class="container">
-                <div @click="selectV" class="video-block">
-                  <vue-plyr ref="plyrPromo" :options="options">
-                    <video
-                        controls
-                        crossorigin
-                        playsinline
-                        data-poster="poster.jpg"
-                    >
-                      <source
-                          size="720"
-                          src="@/assets/promo.mp4"
-                          type="video/mp4"
-                      />
-                      <source
-                          size="1080"
-                          src="@/assets/promo.mp4"
-                          type="video/mp4"
-                      />
-                      <track
-                          default
-                          kind="captions"
-                          label="English captions"
-                          src="/path/to/english.vtt"
-                          srclang="en"
-                      />
-                    </video>
-                  </vue-plyr>
+                <div @click="select" class="video-block">
+                    <vue-plyr ref="plyrPromo" :options="options">
+                        <video
+                            controls
+                            crossorigin
+                            playsinline
+                            data-poster="poster.jpg"
+                        >
+                        <source
+                            size="720"
+                            src="@/assets/promo.mp4"
+                            type="video/mp4"
+                        />
+                        <source
+                            size="1080"
+                            src="@/assets/promo.mp4"
+                            type="video/mp4"
+                        />
+                        <track
+                            default
+                            kind="captions"
+                            label="English captions"
+                            src="/path/to/english.vtt"
+                            srclang="en"
+                        />
+                        </video>
+                    </vue-plyr>
                 </div>
                 <div class="text-block">
                     <h2>
                         промо ролик мини-курса <br>
-                        <span class="green" @click="selectV">«основы финансовой <br> грамотности»</span>
+                        <span class="green" @click="select">«основы финансовой <br> грамотности»</span>
                     </h2>
                     <!-- <button @click="showVideos = !showVideos" class="course-btn">Смотреть курс</button> -->
                 </div>
@@ -120,17 +120,22 @@
             getImgUrl(pic) {
                 return require('../assets/'+pic)
             },
-            selectV() {
-                // let rockett
-                this.$refs.plyrPromo.player.togglePlay()
-                // let btn = document.querySelector('.plyr--full-ui.plyr--video .plyr__control--overlaid');
-                // btn.click();
+            clickBtn() {
+                let btn = document.getElementsByClassName('plyr__poster');
+                btn.addEventListener('click', this.$refs.plyrPromo.player.togglePlay());
+            },
+            select() {
+                let rockett = document.querySelector('.rocket');
+                this.clickBtn;
+                this.$refs.plyrPromo.player.togglePlay();
+                if (rockett != null) {
+                    rockett.classList.add('flying');
+                    setTimeout(() => {
+                        rockett.remove();
+                    },2000)
+                }
             }
         },
-        // mounted() {
-        //     let btn = document.querySelector('.plyr--full-ui.plyr--video .plyr__control--overlaid');
-        //     btn.remove();
-        // }
     }
 </script>
 
@@ -237,10 +242,6 @@
             }
         }
         .rocket {
-            animation: fadeOutTopRight;
-            animation-duration: 2s;
-        }
-        img {
             position: absolute;
             right: 44px;
             bottom: -15px;

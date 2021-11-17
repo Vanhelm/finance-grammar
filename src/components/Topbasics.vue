@@ -21,7 +21,7 @@
                         Освоите выгодный способ инвестирования в госзакупки <br>
                         и поймете, почему Тендерная Биржа - лучший партнер для получения прибыли.
                     </p>
-                    <popup class="popup" @click="flying"/>
+                    <popup class="popup"/>
                 </div>
                 <div class="block-video">
                     <div @click="select" id="playerWrap" class="wrapper">
@@ -55,7 +55,7 @@
                             <!-- <a href="#" class="block">Смотреть больше &#8594;</a> -->
                         </div>
                     </div>
-                    <img class="activate'" src="@/assets/rocket1.png" alt="">
+                    <img id="top" class="rockettop'" src="@/assets/rocket1.png" alt="">
                 </div>
             </section>
             <scroll/>
@@ -90,10 +90,19 @@ import Scroll from './Scroll.vue'
                 console.log(number);
                 this.counter = number
             },
+            clickBtn() {
+                let btn = document.getElementsByClassName('plyr__poster');
+                btn.addEventListener('click', this.$refs.plyrTop.player.togglePlay());
+            },
             select() {
-                this.$refs.plyrTop.player.togglePlay()
-                // let btn = document.querySelector('.plyr--full-ui.plyr--video .plyr__control--overlaid');
-                // btn.click();
+                let rocket = document.getElementById('top');
+                this.$refs.plyrTop.player.togglePlay();
+                if (rocket != null) {
+                    rocket.classList.add('flying');
+                    setTimeout(() => {
+                        rocket.remove();
+                    },2000)
+                }
             }
         },
         mounted() {
@@ -307,17 +316,13 @@ import Scroll from './Scroll.vue'
                     width: 30%;
                     top: -80px;
                     right: 10px;
-                    animation: fadeInBottomLeft;
-                    animation-duration: 2s;
+                    // animation: fadeInBottomLeft;
+                    // animation-duration: 2s;
                     @media(max-width: 545px) {
                         width: 40%;
                         top: -25px;
                         right: 0;
                     }
-                }
-                .activate {
-                    animation: fadeOutTopRight;
-                    animation-duration: 2s;
                 }
             }
         }
