@@ -2,8 +2,8 @@
     <div class="promo__wrapper">
         <div class="promo">
             <div class="container">
-                <div class="video-block">
-                  <vue-plyr :options="options">
+                <div @click="selectV" class="video-block">
+                  <vue-plyr ref="plyrPromo" :options="options">
                     <video
                         controls
                         crossorigin
@@ -33,12 +33,12 @@
                 <div class="text-block">
                     <h2>
                         промо ролик мини-курса <br>
-                        <span class="green" >«основы финансовой <br> грамотности»</span>
+                        <span class="green" @click="selectV">«основы финансовой <br> грамотности»</span>
                     </h2>
                     <!-- <button @click="showVideos = !showVideos" class="course-btn">Смотреть курс</button> -->
                 </div>
             </div>
-            <img src="@/assets/rocket1.png" alt="">
+            <img class="rocket" src="@/assets/rocket1.png" alt="">
             <!-- <button @click="showVideos = !showVideos" class="course-btn-mobile">Смотреть курс</button> -->
         </div>
         <div class="videos" v-if="showVideos">
@@ -119,8 +119,18 @@
         methods: {
             getImgUrl(pic) {
                 return require('../assets/'+pic)
+            },
+            selectV() {
+                // let rockett
+                this.$refs.plyrPromo.player.togglePlay()
+                // let btn = document.querySelector('.plyr--full-ui.plyr--video .plyr__control--overlaid');
+                // btn.click();
             }
-        }
+        },
+        // mounted() {
+        //     let btn = document.querySelector('.plyr--full-ui.plyr--video .plyr__control--overlaid');
+        //     btn.remove();
+        // }
     }
 </script>
 
@@ -226,13 +236,15 @@
         }
             }
         }
+        .rocket {
+            animation: fadeOutTopRight;
+            animation-duration: 2s;
+        }
         img {
             position: absolute;
             right: 44px;
             bottom: -15px;
             width: 25%;
-            animation: fadeOutTopRight;
-            animation-duration: 2s;
             @media(max-width: 545px) {
                 width: 35%;
                 bottom: 70px;

@@ -25,7 +25,7 @@
                 </div>
                 <div class="block-video">
                     <div @click="select" id="playerWrap" class="wrapper">
-                      <vue-plyr ref="plyr" :options="options">
+                      <vue-plyr  ref="plyrTop" :options="options">
                         <video
                             controls
                             crossorigin
@@ -91,12 +91,16 @@ import Scroll from './Scroll.vue'
                 this.counter = number
             },
             select() {
-                // this.$refs.plyr.player.togglePlay()
+                this.$refs.plyrTop.player.togglePlay()
+                // let btn = document.querySelector('.plyr--full-ui.plyr--video .plyr__control--overlaid');
+                // btn.click();
             }
         },
         mounted() {
             this.currentPeople();
-            this.$refs.plyr.player.touch = true
+            this.$refs.plyrTop.player.touch = true
+            // let btns = document.querySelectorAll('.plyr--full-ui.plyr--video .plyr__control--overlaid');
+            // btns.forEach(btn => btn.remove());
         },
     }
 </script>

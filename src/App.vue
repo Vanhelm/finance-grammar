@@ -47,6 +47,10 @@ export default {
     Person,
     Time,
     Footerapp
+  },
+  mounted() {
+    let btns = document.querySelectorAll('.plyr--full-ui.plyr--video .plyr__control--overlaid');
+    btns.forEach(btn => btn.remove());
   }
 }
 </script>

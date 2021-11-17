@@ -54,7 +54,7 @@ export default {
                     phone: 'phone',
                     email: 'email'
                 },
-                phone: '(XXX) XXX-XXXX',
+                phone: '+7 (XXX) XXX-XXXX',
                 errorNum: null,
                 errorName: null
             }
@@ -93,8 +93,8 @@ export default {
         watch: {
             number() {
                 this.number = this.number.replace(/[^0-9]/g, '')
-                .replace(/^(\d{3})(\d{3})(\d{4})/g, '($1) $2-$3')
-                .substring(0, this.phone.length)
+                .replace(/^(\d{1})(\d{3})(\d{3})(\d{4})/g, '+7($2) $3-$4')
+                .substring(0, this.phone.length - 1)
             }
         },
         created() {
