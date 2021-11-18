@@ -42,7 +42,7 @@
         },
         methods: {
             submitForm()  {
-                if (this.number.length == this.phone.length && this.name.length >= 2) {
+                if (this.number.length == (this.phone.length - 1)  && this.name.length >= 2) {
                     this.user.name = this.name
                     this.user.phone = this.number
                     this.user.email = this.mail

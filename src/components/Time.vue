@@ -61,13 +61,11 @@ export default {
         },
         methods: {
             submitForm()  {
-                if (this.number.length == this.phone.length && this.name.length >= 2) {
+                if (this.number.length == (this.phone.length - 1) && this.name.length >= 2) {
                     this.user.name = this.name
                     this.user.phone = this.number
                     this.user.email = this.mail
                     localStorage.user = JSON.stringify(this.user)
-
-
                     // axios.post(
                     //     'https://lab.tb7.kz/pl/lite/block-public/process-html?id=1199043895',
                     //     {name: this.name, phone: this.number, email: this.mail}
@@ -81,7 +79,7 @@ export default {
                     this.number = ''
                     this.mail = ''
                     this.$store.commit("switch")
-                } else  {
+                } else {
                     this.errorName = true
                     this.errorNum = true
                     this.name = ''
