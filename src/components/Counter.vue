@@ -71,7 +71,7 @@
             showRemaining() {
                 const timer = setInterval(() => {
                     const now = new Date();
-                    const end = new Date(2021, 10, 30, 11, 59, 59, 10);
+                    const end = new Date(2021, 11, 31, 23, 59, 59, 10);
                     const distance = end.getTime() - now.getTime();
 
                     if (distance < 0) {
