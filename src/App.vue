@@ -9,6 +9,7 @@
   <Footerapp/>
 </template>
 
+
 <script>
 import 'animate.css';
 import Topbasics from './components/Topbasics.vue'
