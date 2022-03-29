@@ -1,25 +1,25 @@
 <template>
   <!-- app -->
 <div id="app" class="modal-vue">
-  
+
   <!-- button show -->
   <a v-smooth-scroll href="#contact-wrapper" class="btn__wrapper">
     <button class="btn" href="#contact-wrapper">Зарегистрироваться</button>
   </a>
-  
+
   <!-- overlay -->
   <div class="overlay" v-if="showModal" @click="showModal = false"></div>
-  
+
   <!-- modal -->
   <div class="modal" v-if="showModal">
     <button class="close" @click="showModal = false">&#10005;</button>
     <div class="form__block">
       <div class="img-block"><img src="@/assets/present.png" alt=""></div>
-      <div class="container">  
+      <div class="container">
           <form id="contact" @submit.prevent="submitForm"  method="post">
               <h3>Занимайте место</h3>
               <!-- <h4>
-                  Регистрируйся на вебинар и получи 
+                  Регистрируйся на вебинар и получи
                   мини-курс в подарок
               </h4> -->
               <fieldset>
@@ -43,7 +43,7 @@
       </div>
     </div>
   </div>
-  
+
 </div>
 </template>
 
@@ -69,6 +69,20 @@ export default {
     }
   },
   methods: {
+    readCookie(name) {
+        var name_cook = name+"=";
+        var spl = document.cookie.split(";");
+        for(var i=0; i<spl.length; i++) {
+          var c = spl[i];
+          while(c.charAt(0) == " ") {
+            c = c.substring(1, c.length);
+          }
+          if(c.indexOf(name_cook) == 0) {
+            return c.substring(name_cook.length, c.length);
+          }
+        }
+        return null;
+      },
     submitForm()  {
       if (this.number.length == this.phone.length && this.name.length > 3) {
           this.user.name = this.name
@@ -78,7 +92,7 @@ export default {
           // Roistat start
           if(this.user.phone && this.user.name){
             const url = 'https://cloud.roistat.com/api/proxy/1.0/leads/add?key=NmEwMWZkNDZiZGFlOWY0Y2ZhYzQ4ZWQyMGMzZmQ3ODA6MjAxODkw&is_skip_sending=1&name='
-                + this.user.name +'&phone=' + this.user.phone + '&email=' + this.user.email;
+                + this.user.name +'&phone=' + this.user.phone + '&email=' + this.user.email + '&roistat=' + this.readCookie('roistat_visit');
             const myInit = {
               method: 'POST',
               mode: 'no-cors',
@@ -163,7 +177,7 @@ export default {
         width: 100%;
         // left: 0px;
       }
-    }  
+    }
   }
     .overlay {
         position: fixed;
@@ -207,7 +221,7 @@ export default {
                 width: 100%;
                 margin: 0 auto;
                 position: relative;
-                
+
                 #contact {
                     background: #EEEEEE;
                     border-radius: 20px;
@@ -335,7 +349,7 @@ export default {
                             }
                         }
                     }
-                    
+
                 }
 
                 .second-form {

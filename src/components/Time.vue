@@ -60,6 +60,21 @@ export default {
             }
         },
         methods: {
+          readCookie(name) {
+              var name_cook = name+"=";
+              var spl = document.cookie.split(";");
+              for(var i=0; i<spl.length; i++) {
+                var c = spl[i];
+                while(c.charAt(0) == " ") {
+                  c = c.substring(1, c.length);
+                }
+                if(c.indexOf(name_cook) == 0) {
+                  return c.substring(name_cook.length, c.length);
+                }
+              }
+              return null;
+            },
+
             submitForm()  {
                 if (this.number.length == (this.phone.length - 1) && this.name.length >= 2) {
                     this.user.name = this.name
@@ -69,7 +84,7 @@ export default {
                     // Roistat start
                     if(this.user.phone && this.user.name){
                       const url = 'https://cloud.roistat.com/api/proxy/1.0/leads/add?key=NmEwMWZkNDZiZGFlOWY0Y2ZhYzQ4ZWQyMGMzZmQ3ODA6MjAxODkw&is_skip_sending=1&name='
-                          + this.user.name +'&phone=' + this.user.phone + '&email=' + this.user.email;
+                          + this.user.name +'&phone=' + this.user.phone + '&email=' + this.user.email + '&roistat=' + this.readCookie('roistat_visit');
                       const myInit = {
                         method: 'POST',
                         mode: 'no-cors',
